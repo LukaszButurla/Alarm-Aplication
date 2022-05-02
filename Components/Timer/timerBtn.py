@@ -1,4 +1,5 @@
 from tkinter import Button
+from Components.Timer.timer import Timer
 
 class TimerButtons:
 
@@ -8,12 +9,14 @@ class TimerButtons:
     BtnReset = None
     start = False
     pause = False
+    timer = None
 
     def __init__(self, frame):
 
         self.frame = frame
         self.CreateButtons()
         self.PlaceButtons()
+        self.timer = Timer(self.frame)
 
     def CreateButtons(self):
 
