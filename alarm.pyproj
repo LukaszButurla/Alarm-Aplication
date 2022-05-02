@@ -23,10 +23,16 @@
   <ItemGroup>
     <Compile Include="main.py" />
     <Compile Include="Components\Menu\menu.py" />
+    <Compile Include="Pages\alarmsPage.py" />
+    <Compile Include="Pages\clockPage.py" />
+    <Compile Include="Pages\infoPage.py" />
+    <Compile Include="Pages\timepiecePage.py" />
+    <Compile Include="Pages\timerPage.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Components\Menu\" />
     <Folder Include="Components\" />
+    <Folder Include="Pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
