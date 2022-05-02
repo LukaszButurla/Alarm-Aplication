@@ -27,4 +27,4 @@ class Clock:
 
     def ShowTime(self):
 
-        print(self.hour, self.minute)
+        self.clockTxt.configure(text = "{}:{}".format(self.hour, self.minute))
