@@ -4,7 +4,6 @@ from Components.Timepiece.timepieceBtn import TimepieceButtons
 
 class TimepiecePage:
 
-    timepieceTxt = None
     timepieceBtn = None
     window = None
     frame = None
@@ -13,7 +12,6 @@ class TimepiecePage:
 
         self.window = root
         self.CreateTimepiecePage()
-        self.timepieceTxt = TimepieceTxt(self.frame)
         self.timepieceBtn = TimepieceButtons(self.frame)
 
     def CreateTimepiecePage(self):
