@@ -45,7 +45,6 @@ class Timer:
         
     def StartStop(self):
         
-        print("startStop")
         
         if self.pause == True:
             
@@ -53,7 +52,6 @@ class Timer:
             self.pause = False
             
             self.pauseTime += self.pauseStop - self.pauseStart
-            print(self.pauseTime)
             
         elif self.pause == False:
             
