@@ -1,6 +1,5 @@
 from tkinter import Frame, Label
 from Components.Timepiece.timepieceTxt import TimepieceTxt
-from Components.Timepiece.timepieceSliders import TimepieceSliders
 
 class TimepiecePage:
 
@@ -14,7 +13,6 @@ class TimepiecePage:
         self.window = root
         self.CreateTimepiecePage()
         self.timepieceTxt = TimepieceTxt(self.frame)
-        self.timepieceSliders = TimepieceSliders(self.frame)
 
     def CreateTimepiecePage(self):
 
