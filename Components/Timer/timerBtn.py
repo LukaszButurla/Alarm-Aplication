@@ -21,7 +21,7 @@ class TimerButtons:
     def CreateButtons(self):
 
         self.btnStart = Button(self.frame, text = "<", command = self.StartTimer)
-        self.btnStopStart = Button(self.frame, text = "P", command = self.StopStopTimer)
+        self.btnStopStart = Button(self.frame, text = "P", command = self.StopStart)
         self.BtnReset = Button(self.frame, text = "R", command = self.ResetTimer)
         
     def PlaceButtons(self):
@@ -48,11 +48,11 @@ class TimerButtons:
     
         self.start = True
         self.PlaceButtons()
-        self.timer.StartStop(self.start)
+        self.timer.StartTimer(self.start)
         print("start")
 
 
-    def StopStopTimer(self):
+    def StopStart(self):
 
         if self.pause == True:
 

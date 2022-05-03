@@ -24,10 +24,11 @@ class Main:
 
         while True:
 
-            sleep(0.1)
+            sleep(0.07)
+            self.window.update()
             self.menu.clockPage.clock.LoadTime()
             self.menu.clockPage.clock.ShowTime()
-            self.window.update()
+            self.menu.timerPage.timerBtn.timer.Count()
 
         
 
