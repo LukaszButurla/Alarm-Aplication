@@ -49,7 +49,6 @@ class TimerButtons:
         self.start = True
         self.PlaceButtons()
         self.timer.StartTimer(self.start)
-        print("start")
 
 
     def StopStart(self):
