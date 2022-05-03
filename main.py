@@ -9,7 +9,6 @@ class Main:
 
     def __init__(self):
 
-        print("tak")
         self.ConfigureWindow()
         self.menu = Menu(self.window)
         self.Update()

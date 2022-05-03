@@ -62,6 +62,7 @@ class TimerButtons:
 
             self.pause = True
 
+        self.timer.StartStop()
         self.PlaceButtons()
 
     def ResetTimer(self):
@@ -69,3 +70,4 @@ class TimerButtons:
         self.start = False
         self.pause = False
         self.PlaceButtons()
+        self.timer.ResetTime()
