@@ -56,10 +56,7 @@ class TimepieceButtons:
         
         
     def PlaceButtons(self, start, pause):
-        
-        print(start)
-        print(pause)
-        
+            
         if start == False:
             
             self.addHourBtn.place(x = 95, y = 200)

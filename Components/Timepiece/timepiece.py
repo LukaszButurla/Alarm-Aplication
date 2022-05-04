@@ -1,4 +1,7 @@
+from math import floor
+from sqlite3 import Time
 from tkinter import Label
+from time import time
 
 class TimepieceTxt:
     
@@ -10,6 +13,10 @@ class TimepieceTxt:
     hourToEnd = None
     minuteToEnd = None
     secondToEnd = None
+    timeToEnd = None
+    startTime = None
+    endTime = None
+    deltaStart = None
     start = False
     pause = False
     
@@ -20,7 +27,7 @@ class TimepieceTxt:
         
     def ShowTimepiece(self):
         
-        self.timepieceTxt = Label(self.frame, text = "23:59:59", bg = "white", font=("Calibri", 30))
+        self.timepieceTxt = Label(self.frame, text = "0:00:00", bg = "white", font=("Calibri", 30))
         self.timepieceTxt.place(x = 50, y = 225, width=200, height=60)
         
     def EditTxt(self, hour, minute, second):
@@ -29,12 +36,23 @@ class TimepieceTxt:
         
     def StartTimepiece(self):
         
-        self.start = True        
+        self.hourToEnd = self.startHour
+        self.minuteToEnd = self.startMinute
+        self.secondToEnd = self.startSecond
+        
+        self.startTime = time()
+        self.timeToEnd = self.hourToEnd * 3600 + self.minuteToEnd * 60 + self.secondToEnd
+        print(self.timeToEnd, "start")
+        self.endTime = self.startTime + self.timeToEnd
+        self.start = True  
+        self.deltaStart = time()     
         
     def ResetTimepiece(self):
         
         self.start = False
         self.pause = False
+        self.CheckNumberLen()
+        self.EditTxt(self.startHour, self.startMinute, self.startSecond)
         
     def PauseTimepiece(self):
         
@@ -45,6 +63,52 @@ class TimepieceTxt:
         elif self.pause == False:
             
             self.pause = True
+            
+    def Countdown(self):
+        
+        if self.start == True and self.timeToEnd > 1:            
+            
+            delta = time() - self.deltaStart
+            self.deltaStart = time()
+            
+            self.timeToEnd = self.timeToEnd - delta
+            
+            
+            
+            self.CheckNumberLen()          
+            
+            
+            self.EditTxt(self.hourToEnd, self.minuteToEnd, self.secondToEnd)
+            
+        elif self.start == True and self.timeToEnd < 1:
+            
+            print("end")
+            self.ResetTimepiece()
+            
+    def CheckNumberLen(self):    
+        
+        self.hourToEnd = floor(self.timeToEnd / 3600)
+        self.minuteToEnd = floor((self.timeToEnd - self.hourToEnd * 3600) / 60)
+        self.secondToEnd = self.timeToEnd - self.hourToEnd * 3600 - self.minuteToEnd * 60
+            
+        self.secondToEnd = str(self.secondToEnd)
+        dot = self.secondToEnd.find(".")
+        self.secondToEnd = self.secondToEnd[:dot]
+            
+        self.hourToEnd = floor(self.timeToEnd / 3600)
+        
+        if len(str(self.minuteToEnd)) < 2:
+                
+            self.minuteToEnd = "0" + str(self.minuteToEnd)
+            
+        else:
+                
+            self.minuteToEnd = str(self.minuteToEnd)
+                
+        if len(str(self.secondToEnd)) < 2:
+                
+            self.secondToEnd = "0" + str(self.secondToEnd)[:1]
+            
             
         
     def AddOrSubtract(self, number, t):

@@ -28,6 +28,7 @@ class Main:
             self.menu.clockPage.clock.LoadTime()
             self.menu.clockPage.clock.ShowTime()
             self.menu.timerPage.timerBtn.timer.Count()
+            self.menu.timepiecePage.timepieceBtn.timepiece.Countdown()
 
         
 
