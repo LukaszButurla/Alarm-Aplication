@@ -51,7 +51,7 @@ class TimepieceTxt:
         
         self.start = False
         self.pause = False
-        self.CheckNumberLen()
+        self.startMinute, self.startSecond = self.CheckNumberLen(self.startMinute, self.startSecond)
         self.EditTxt(self.startHour, self.startMinute, self.startSecond)
         
     def PauseTimepiece(self):
@@ -73,9 +73,15 @@ class TimepieceTxt:
             
             self.timeToEnd = self.timeToEnd - delta
             
+            self.hourToEnd = floor(self.timeToEnd / 3600)
+            self.minuteToEnd = floor((self.timeToEnd - self.hourToEnd * 3600) / 60)
+            self.secondToEnd = self.timeToEnd - self.hourToEnd * 3600 - self.minuteToEnd * 60
             
+            self.secondToEnd = str(self.secondToEnd)
+            dot = self.secondToEnd.find(".")
+            self.secondToEnd = self.secondToEnd[:dot]
             
-            self.CheckNumberLen()          
+            self.minuteToEnd, self.secondToEnd = self.CheckNumberLen(self.minuteToEnd, self.secondToEnd)          
             
             
             self.EditTxt(self.hourToEnd, self.minuteToEnd, self.secondToEnd)
@@ -85,29 +91,22 @@ class TimepieceTxt:
             print("end")
             self.ResetTimepiece()
             
-    def CheckNumberLen(self):    
-        
-        self.hourToEnd = floor(self.timeToEnd / 3600)
-        self.minuteToEnd = floor((self.timeToEnd - self.hourToEnd * 3600) / 60)
-        self.secondToEnd = self.timeToEnd - self.hourToEnd * 3600 - self.minuteToEnd * 60
-            
-        self.secondToEnd = str(self.secondToEnd)
-        dot = self.secondToEnd.find(".")
-        self.secondToEnd = self.secondToEnd[:dot]
-            
-        self.hourToEnd = floor(self.timeToEnd / 3600)
-        
-        if len(str(self.minuteToEnd)) < 2:
+    def CheckNumberLen(self, minute, second):    
+               
+                    
+        if len(str(minute)) < 2:
                 
-            self.minuteToEnd = "0" + str(self.minuteToEnd)
+            minute = "0" + str(minute)
             
         else:
                 
-            self.minuteToEnd = str(self.minuteToEnd)
+            minute = str(minute)
                 
-        if len(str(self.secondToEnd)) < 2:
+        if len(str(second)) < 2:
                 
-            self.secondToEnd = "0" + str(self.secondToEnd)[:1]
+            second = "0" + str(second)[:1]
+            
+        return minute, second
             
             
         
