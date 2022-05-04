@@ -15,28 +15,23 @@ class TimepieceButtons:
     startBtn = None
     pauseBtn = None
     resetBtn = None
-    start = False
-    pause = False
-    startHour = 00
-    startMinute = 00
-    startSecond = 00
     
     def __init__(self, frame):
         
         self.frame = frame
         self.timepiece = TimepieceTxt(self.frame)
         self.CreateButtons()
-        self.PlaceButtons()
+        self.PlaceButtons(self.timepiece.start, self.timepiece.pause)
         self.timepiece.EditTxt("0", "00", "00")
         
     def CreateButtons(self):
         
-        self.addHourBtn = Button(self.frame, text = "+", bg = "white", command=partial(self.AddOrSubtract, 1, "hour"))
-        self.addMinuteBtn = Button(self.frame, text = "+", bg = "white", command = partial(self.AddOrSubtract, 1, "minute"))
-        self.addSecondBtn = Button(self.frame, text = "+", bg = "white", command = partial(self.AddOrSubtract, 1, "second"))
-        self.subtractHourBtn = Button(self.frame, text = "-", bg = "white", command=partial(self.AddOrSubtract, -1, "hour"))
-        self.subtractMinuteBtn = Button(self.frame, text = "-", bg = "white", command=partial(self.AddOrSubtract, -1, "minute"))
-        self.subtractSecondBtn = Button(self.frame, text = "-", bg = "white", command=partial(self.AddOrSubtract, -1, "second"))
+        self.addHourBtn = Button(self.frame, text = "+", bg = "white", command=partial(self.timepiece.AddOrSubtract, 1, "hour"))
+        self.addMinuteBtn = Button(self.frame, text = "+", bg = "white", command = partial(self.timepiece.AddOrSubtract, 1, "minute"))
+        self.addSecondBtn = Button(self.frame, text = "+", bg = "white", command = partial(self.timepiece.AddOrSubtract, 1, "second"))
+        self.subtractHourBtn = Button(self.frame, text = "-", bg = "white", command=partial(self.timepiece.AddOrSubtract, -1, "hour"))
+        self.subtractMinuteBtn = Button(self.frame, text = "-", bg = "white", command=partial(self.timepiece.AddOrSubtract, -1, "minute"))
+        self.subtractSecondBtn = Button(self.frame, text = "-", bg = "white", command=partial(self.timepiece.AddOrSubtract, -1, "second"))
         
         self.startBtn = Button(self.frame, text = ">", bg = "white", command=self.StartTimepiece)
         self.resetBtn = Button(self.frame, text = "R", bg = "white", command=self.ResetTimepiece)
@@ -44,33 +39,28 @@ class TimepieceButtons:
         
     def StartTimepiece(self):
         
-        self.start = True
-        self.PlaceButtons()
+        self.timepiece.StartTimepiece()
+        self.PlaceButtons(self.timepiece.start, self.timepiece.pause)
         
     def ResetTimepiece(self):
         
-        self.start = False
-        self.timepiece.EditTxt(self.startHour, self.startSecond, self.startSecond)
-        self.PlaceButtons()
+        self.timepiece.ResetTimepiece()
+        self.PlaceButtons(self.timepiece.start, self.timepiece.pause)
         
     def PauseTimepiece(self):
         
-        if self.pause == True:
+        self.timepiece.PauseTimepiece()            
+        self.PlaceButtons(self.timepiece.start, self.timepiece.pause)
             
-            self.pause = False
-            self.pauseBtn.configure(text = "NP")
-        
-        elif self.pause == False:
-            
-            self.pause = True
-            self.pauseBtn.configure(text = "P")
-            
-        self.PlaceButtons()
+
         
         
-    def PlaceButtons(self):
+    def PlaceButtons(self, start, pause):
         
-        if self.start == False:
+        print(start)
+        print(pause)
+        
+        if start == False:
             
             self.addHourBtn.place(x = 95, y = 200)
             self.addMinuteBtn.place(x = 140, y = 200)
@@ -83,7 +73,7 @@ class TimepieceButtons:
             self.resetBtn.place_forget()
             self.pauseBtn.place_forget()
             
-        elif self.start == True:
+        elif start == True:
             
             self.startBtn.place_forget()
             self.addHourBtn.place_forget()
@@ -96,73 +86,15 @@ class TimepieceButtons:
             self.resetBtn.place(x = 120, y = 320)
             self.pauseBtn.place(x = 160, y= 320)
             
+        if pause == True:
             
-    def AddOrSubtract(self, number, t):
-
-        if t == "hour":
-
-            if self.startHour + number >= 0 and self.startHour + number <= 23:
-                
-                self.startHour += number
-                
-                
-                
-            elif self.startHour + number < 0:
-                
-                self.startHour = 23
-         
-            elif self.startHour + number > 23:
-                
-                self.startHour = 0               
-        
-        elif t == "minute":
+            self.pauseBtn.configure(text = "P")
             
-            if self.startMinute + number >= 0 and self.startMinute + number <= 59:
-                
-                self.startMinute += number                
-                
-                
-            elif self.startMinute + number < 0:
-                
-                self.startMinute = 59
-                
-            elif self.startMinute + number > 59:
-                
-                self.startMinute = 0
-                
+        elif pause == False:
             
-        elif t == "second":
-               
-            if self.startSecond + number >= 0 and self.startSecond + number <= 59:
-                
-                self.startSecond += number
-                
-            elif self.startSecond + number < 0:
-                
-                self.startSecond = 59
-                
-            elif self.startSecond + number > 59:
-                
-                self.startSecond = 0
-                
-        if len(str(self.startMinute)) < 2:
-                    
-            strMinute = "0" + str(self.startMinute)
-                    
-        else:
-                    
-            strMinute = str(self.startMinute)         
+            self.pauseBtn.configure(text = "NP")
             
-        if len(str(self.startSecond)) < 2:
             
-            strSecond = "0" + str(self.startSecond)
-            
-        else:
-            
-            strSecond = str(self.startSecond)
-                
-        strHour = str(self.startHour)
-        
-        self.timepiece.EditTxt(strHour, strMinute, strSecond)
+    
         
                 
