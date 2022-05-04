@@ -27,8 +27,8 @@ class TimepieceTxt:
         
     def ShowTimepiece(self):
         
-        self.timepieceTxt = Label(self.frame, text = "0:00:00", bg = "white", font=("Calibri", 30))
-        self.timepieceTxt.place(x = 50, y = 225, width=200, height=60)
+        self.timepieceTxt = Label(self.frame, text = "0:00:00", bg = "white", font=("Calibri", 45))
+        self.timepieceTxt.place(x = 5, y = 225, width=300, height=80)
         
     def EditTxt(self, hour, minute, second):
         
@@ -41,7 +41,7 @@ class TimepieceTxt:
         self.secondToEnd = self.startSecond
         
         self.startTime = time()
-        self.timeToEnd = self.hourToEnd * 3600 + self.minuteToEnd * 60 + self.secondToEnd
+        self.timeToEnd = int(self.hourToEnd) * 3600 + int(self.minuteToEnd) * 60 + int(self.secondToEnd)
         print(self.timeToEnd, "start")
         self.endTime = self.startTime + self.timeToEnd
         self.start = True  
@@ -114,13 +114,12 @@ class TimepieceTxt:
     
         if t == "hour":
 
-            if self.startHour + number >= 0 and self.startHour + number <= 23:
+            if int(self.startHour) + number >= 0 and int(self.startHour) + number <= 23:
                 
-                self.startHour += number
+                self.startHour = int(self.startHour) + number                
                 
                 
-                
-            elif self.startHour + number < 0:
+            elif int(self.startHour) + number < 0:
                 
                 self.startHour = 23
          
@@ -130,10 +129,9 @@ class TimepieceTxt:
         
         elif t == "minute":
             
-            if self.startMinute + number >= 0 and self.startMinute + number <= 59:
+            if int(self.startMinute) + number >= 0 and int(self.startMinute) + number <= 59:
                 
-                self.startMinute += number                
-                
+                self.startMinute = int(self.startMinute) + number                         
                 
             elif self.startMinute + number < 0:
                 
@@ -146,9 +144,9 @@ class TimepieceTxt:
             
         elif t == "second":
                
-            if self.startSecond + number >= 0 and self.startSecond + number <= 59:
+            if int(self.startSecond) + number >= 0 and int(self.startSecond) + number <= 59:
                 
-                self.startSecond += number
+                self.startSecond = int(self.startSecond) + number
                 
             elif self.startSecond + number < 0:
                 
