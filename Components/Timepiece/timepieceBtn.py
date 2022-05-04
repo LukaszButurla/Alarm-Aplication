@@ -1,11 +1,11 @@
 from tkinter import Button
 from functools import partial
-from Components.Timepiece.timepieceTxt import TimepieceTxt
+from Components.Timepiece.timepiece import TimepieceTxt
 
 class TimepieceButtons:
     
     frame = None
-    timepieceTxt = None
+    timepiece = None
     addHourBtn = None
     addMinuteBtn = None
     addSecondBtn = None
@@ -17,17 +17,17 @@ class TimepieceButtons:
     resetBtn = None
     start = False
     pause = False
-    hour = 12
-    minute = 30
-    second = 30
+    startHour = 00
+    startMinute = 00
+    startSecond = 00
     
     def __init__(self, frame):
         
         self.frame = frame
-        self.timepieceTxt = TimepieceTxt(self.frame)
+        self.timepiece = TimepieceTxt(self.frame)
         self.CreateButtons()
         self.PlaceButtons()
-        self.timepieceTxt.EditTxt(self.hour, self.minute, self.second)
+        self.timepiece.EditTxt("0", "00", "00")
         
     def CreateButtons(self):
         
@@ -50,6 +50,7 @@ class TimepieceButtons:
     def ResetTimepiece(self):
         
         self.start = False
+        self.timepiece.EditTxt(self.startHour, self.startSecond, self.startSecond)
         self.PlaceButtons()
         
     def PauseTimepiece(self):
@@ -100,46 +101,68 @@ class TimepieceButtons:
 
         if t == "hour":
 
-            if self.hour + number >= 0 and self.hour + number <= 23:
+            if self.startHour + number >= 0 and self.startHour + number <= 23:
                 
-                self.hour += number
+                self.startHour += number
                 
-            elif self.hour + number < 0:
                 
-                self.hour = 23
+                
+            elif self.startHour + number < 0:
+                
+                self.startHour = 23
          
-            elif self.hour + number > 23:
+            elif self.startHour + number > 23:
                 
-                self.hour = 0                
+                self.startHour = 0               
         
         elif t == "minute":
             
-            if self.minute + number >= 0 and self.minute + number <= 59:
+            if self.startMinute + number >= 0 and self.startMinute + number <= 59:
                 
-                self.minute += number
+                self.startMinute += number                
                 
-            elif self.minute + number < 0:
                 
-                self.minute = 59
+            elif self.startMinute + number < 0:
                 
-            elif self.minute + number > 59:
+                self.startMinute = 59
                 
-                self.minute = 0
+            elif self.startMinute + number > 59:
+                
+                self.startMinute = 0
                 
             
         elif t == "second":
                
-            if self.second + number >= 0 and self.second + number <= 59:
+            if self.startSecond + number >= 0 and self.startSecond + number <= 59:
                 
-                self.second += number
+                self.startSecond += number
                 
-            elif self.second + number < 0:
+            elif self.startSecond + number < 0:
                 
-                self.second = 59
+                self.startSecond = 59
                 
-            elif self.second + number > 59:
+            elif self.startSecond + number > 59:
                 
-                self.second = 0
+                self.startSecond = 0
                 
-        self.timepieceTxt.EditTxt(self.hour, self.minute, self.second)
+        if len(str(self.startMinute)) < 2:
+                    
+            strMinute = "0" + str(self.startMinute)
+                    
+        else:
+                    
+            strMinute = str(self.startMinute)         
+            
+        if len(str(self.startSecond)) < 2:
+            
+            strSecond = "0" + str(self.startSecond)
+            
+        else:
+            
+            strSecond = str(self.startSecond)
+                
+        strHour = str(self.startHour)
+        
+        self.timepiece.EditTxt(strHour, strMinute, strSecond)
+        
                 

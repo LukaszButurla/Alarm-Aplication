@@ -1,5 +1,5 @@
 from tkinter import Frame, Label
-from Components.Timepiece.timepieceTxt import TimepieceTxt
+from Components.Timepiece.timepiece import TimepieceTxt
 from Components.Timepiece.timepieceBtn import TimepieceButtons
 
 class TimepiecePage:
