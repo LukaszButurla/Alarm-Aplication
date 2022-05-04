@@ -29,6 +29,7 @@ class Main:
             self.menu.clockPage.clock.ShowTime()
             self.menu.timerPage.timerBtn.timer.Count()
             self.menu.timepiecePage.timepieceBtn.timepiece.Countdown()
+            self.menu.timepiecePage.timepieceBtn.PlaceButtons(self.menu.timepiecePage.timepieceBtn.timepiece.start, self.menu.timepiecePage.timepieceBtn.timepiece.pause)
 
         
 

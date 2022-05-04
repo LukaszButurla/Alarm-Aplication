@@ -19,6 +19,8 @@ class TimepieceTxt:
     deltaStart = None
     start = False
     pause = False
+    pauseStart = None
+    pauseTime = 0
     
     def __init__(self, frame):
         
@@ -36,17 +38,19 @@ class TimepieceTxt:
         
     def StartTimepiece(self):
         
-        self.hourToEnd = self.startHour
-        self.minuteToEnd = self.startMinute
-        self.secondToEnd = self.startSecond
+        if int(self.startHour) > 0 or int(self.startMinute) > 0 or int(self.startSecond) > 0:
         
-        self.startTime = time()
-        self.timeToEnd = int(self.hourToEnd) * 3600 + int(self.minuteToEnd) * 60 + int(self.secondToEnd)
-        print(self.timeToEnd, "start")
-        self.endTime = self.startTime + self.timeToEnd
-        self.start = True  
-        self.deltaStart = time()     
-        
+            self.hourToEnd = self.startHour
+            self.minuteToEnd = self.startMinute
+            self.secondToEnd = self.startSecond
+            
+            self.startTime = time()
+            self.timeToEnd = int(self.hourToEnd) * 3600 + int(self.minuteToEnd) * 60 + int(self.secondToEnd)
+            print(self.timeToEnd, "start")
+            self.endTime = self.startTime + self.timeToEnd
+            self.start = True  
+            self.deltaStart = time()     
+            
     def ResetTimepiece(self):
         
         self.start = False
@@ -59,14 +63,19 @@ class TimepieceTxt:
         if self.pause == True:
             
             self.pause = False
+            self.pauseTime = time() - self.pauseStart
+            self.timeToEnd += self.pauseTime
+            
         
         elif self.pause == False:
             
             self.pause = True
             
+            self.pauseStart = time()
+            
     def Countdown(self):
         
-        if self.start == True and self.timeToEnd > 1:            
+        if self.start == True and self.pause == False and self.timeToEnd > 1:            
             
             delta = time() - self.deltaStart
             self.deltaStart = time()
@@ -88,7 +97,6 @@ class TimepieceTxt:
             
         elif self.start == True and self.timeToEnd < 1:
             
-            print("end")
             self.ResetTimepiece()
             
     def CheckNumberLen(self, minute, second):    
