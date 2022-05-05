@@ -44,25 +44,24 @@ class Timer:
         self.timeStart = time.time()
         
     def StartStop(self):
-        
-        
+               
         if self.pause == True:
             
-            self.pauseStop = time.time()
             self.pause = False
             
-            self.pauseTime += self.pauseStop - self.pauseStart
+            self.pauseTime += (time.time() - self.pauseStart)
+            print(self.pauseTime)
             
         elif self.pause == False:
             
-            self.pauseStart = time.time()
             self.pause = True
+            self.pauseStart = time.time()
         
     def Count(self):
         
         if self.start == True and self.pause == False:            
             
-            self.timer = time.time() - self.timeStart - self.pauseTime
+            self.timer = time.time() - (self.timeStart + self.pauseTime)
             
             hour = self.timer / 3600
             hour = floor(hour)
@@ -74,8 +73,7 @@ class Timer:
             
             if len(str(minute)) < 2:
                 
-                minute = "0" + str(minute)
-            
+                minute = "0" + str(minute)            
             
             dot = str(self.timer).find(".")
             
@@ -85,7 +83,8 @@ class Timer:
                 
                 second = "0" + second
             
-            milisecond = str(self.timer)[3:5]
+            milisecond = str(self.timer)[2:4]
+            
             
             self.EditTimerTxt(hour, minute, second, milisecond)
             
