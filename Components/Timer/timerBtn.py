@@ -1,5 +1,6 @@
 from tkinter import Button
 from Components.Timer.timer import Timer
+from PIL import Image, ImageTk
 
 class TimerButtons:
 
@@ -10,9 +11,16 @@ class TimerButtons:
     start = False
     pause = False
     timer = None
+    startImg = None
+    pauseImg = None
+    resetImg = None
 
     def __init__(self, frame):
 
+        self.startImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\play.png").resize((40, 40)))
+        self.pauseImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\pause.png").resize((40, 40)))
+        self.resetImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\stop-button.png").resize((40, 40)))
+        
         self.frame = frame
         self.CreateButtons()
         self.PlaceButtons()
@@ -20,29 +28,32 @@ class TimerButtons:
 
     def CreateButtons(self):
 
-        self.btnStart = Button(self.frame, text = "<", command = self.StartTimer)
-        self.btnStopStart = Button(self.frame, text = "P", command = self.StopStart)
-        self.BtnReset = Button(self.frame, text = "R", command = self.ResetTimer)
+        self.btnStart = Button(self.frame, image=self.startImg, borderwidth=0, command = self.StartTimer, bg = "white")
+        self.btnStopStart = Button(self.frame, borderwidth=0, text = "P", command = self.StopStart ,bg = "white")
+        self.BtnReset = Button(self.frame, image=self.resetImg, borderwidth=0, text = "R", command = self.ResetTimer, bg = "white")
         
     def PlaceButtons(self):
         
         if self.start == False:
     
-            self.btnStart.place(x = 180, y = 300, height=30, width=30)
+            self.btnStart.place(x = 135, y = 300, height=40, width=40)
             self.btnStopStart.place_forget()
+            self.BtnReset.place_forget()
 
         elif self.start == True:
 
             self.btnStart.place_forget()
-            self.btnStopStart.place(x = 140, y = 300, height=30, width=30)
-
+            self.btnStopStart.place(x = 180, y = 300, height=40, width=40)
+            self.BtnReset.place(x = 100, y = 300, height=40, width=40)
+            
         if self.pause == True:
-
-            self.BtnReset.place(x = 100, y = 300, height=30, width=30)
-
+            
+            self.btnStopStart.configure(image = self.startImg)
+            
         elif self.pause == False:
+            
+            self.btnStopStart.configure(image = self.pauseImg)
 
-            self.BtnReset.place_forget()
             
     def StartTimer(self):
     
