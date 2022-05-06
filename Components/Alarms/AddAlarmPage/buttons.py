@@ -6,17 +6,21 @@ from functools import partial
 
 class Buttons:
     
+    page = None
     frame = None
     hourOfAlarm = None
     addHourBtn = None
     subtractHourBtn = None
     addMinuteBtn = None
     subtractMinuteBtn = None
+    cancelBtn = None
     minute = None
     hour = None
     
-    def __init__(self, frame):
+    def __init__(self, frame, page):
         
+        self.page = page
+        print(self.page)
         self.frame = frame
         self.hourOfAlarm = HourOfAlarm(self.frame)
         self.minute = Configuration.minute
@@ -36,6 +40,19 @@ class Buttons:
         
         self.subtractMinuteBtn = Button(self.frame, text = "-", command=partial(self.AddOrSubtract, "minute", -1))
         self.subtractMinuteBtn.place(x = 200, y = 150)
+        
+        self.cancelBtn = Button(self.frame, text = "Cancel", command = self.Cancel)
+        self.cancelBtn.place(x = 20, y = 500)
+        
+        
+    def Cancel(self):
+        
+        self.hour = 0
+        self.minute = 0
+        
+        self.hourOfAlarm.EditLabel(self.hour, self.minute)
+        self.page.tkraise()
+        
         
     def AddOrSubtract(self, time, number):
         

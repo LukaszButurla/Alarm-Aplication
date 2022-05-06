@@ -16,7 +16,7 @@ class AddAlarmBtn:
         self.window = window
         self.frame = frame
         self.addImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\plus.png").resize((20, 20)))
-        self.addAlarmPage = AddAlarmPage(self.window)
+        self.addAlarmPage = AddAlarmPage(self.window, self.frame)
         self.CreateAddBtn()
         
         
@@ -25,7 +25,7 @@ class AddAlarmBtn:
         self.addBtn = Button(self.frame, image = self.addImg, borderwidth= 0, bg = "white", command= self.OpenAddPage)
         self.addBtn.place(x = 250, y = 20)
         
-    def OpenAddPage(self):
-        
+    def OpenAddPage(self):        
+
 
         self.addAlarmPage.ShowAddFrame()

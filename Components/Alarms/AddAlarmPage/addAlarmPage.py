@@ -1,6 +1,6 @@
 from Components.Alarms.AddAlarmPage.buttons import Buttons
+from Components.Alarms.AddAlarmPage.alarmConfiguration import Configuration
 from tkinter import Frame
-
 
 class AddAlarmPage:
     
@@ -8,11 +8,11 @@ class AddAlarmPage:
     addFrame = None
     buttons = None
     
-    def __init__(self, window):
+    def __init__(self, window, page):
         
         self.frame = window
         self.CreateFrame()
-        self.buttons = Buttons(self.addFrame)
+        self.buttons = Buttons(self.addFrame, page)
         
     def CreateFrame(self):
         
@@ -21,4 +21,4 @@ class AddAlarmPage:
     def ShowAddFrame(self):
         
         self.addFrame.place(x = 0, y = 0)
-        self.addFrame.tkraise()
+        self.addFrame.tkraise()      
