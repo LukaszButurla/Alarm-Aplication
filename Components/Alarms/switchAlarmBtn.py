@@ -6,7 +6,7 @@ class SwitchBtn:
     
     def Switch(self, alarm):
         
-        print("switch")
+        print("switch")        
         print(alarm)
         
         if alarm.on == True:

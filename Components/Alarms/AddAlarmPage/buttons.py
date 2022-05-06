@@ -1,6 +1,7 @@
 from tkinter import Button
 from Components.Alarms.AddAlarmPage.alarmConfiguration import Configuration
 from Components.Alarms.AddAlarmPage.hourOfAlarm import HourOfAlarm
+from Components.Alarms.alarms import Alarms
 from functools import partial
 
 
@@ -8,18 +9,21 @@ class Buttons:
     
     page = None
     frame = None
+    listOfAlarms = None
     hourOfAlarm = None
     addHourBtn = None
     subtractHourBtn = None
     addMinuteBtn = None
     subtractMinuteBtn = None
     cancelBtn = None
+    addAlarmBtn = None
     minute = None
     hour = None
     
-    def __init__(self, frame, page):
+    def __init__(self, frame, page, list):
         
         self.page = page
+        self.listOfAlarms = list
         print(self.page)
         self.frame = frame
         self.hourOfAlarm = HourOfAlarm(self.frame)
@@ -44,6 +48,9 @@ class Buttons:
         self.cancelBtn = Button(self.frame, text = "Cancel", command = self.Cancel)
         self.cancelBtn.place(x = 20, y = 500)
         
+        self.addAlarmBtn = Button(self.frame, text = "Add", command = self.AddAlarm)
+        self.addAlarmBtn.place(x = 230, y = 500)
+                
         
     def Cancel(self):
         
@@ -52,6 +59,12 @@ class Buttons:
         
         self.hourOfAlarm.EditLabel(self.hour, self.minute)
         self.page.tkraise()
+        
+    def AddAlarm(self):
+        
+        alarm = Alarms(True, self.hour, self.minute, 3, False, "opis")
+        self.page.tkraise()
+        self.listOfAlarms.ShowAlarms()
         
         
     def AddOrSubtract(self, time, number):

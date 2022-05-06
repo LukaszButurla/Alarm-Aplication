@@ -10,13 +10,15 @@ class AddAlarmBtn:
     addBtn = None
     addImg = None
     addAlarmPage = None
+    listOfAlarms = None
     
-    def __init__(self, frame, window):
+    def __init__(self, frame, window, list):
         
+        self.listOfAlarms = list
         self.window = window
         self.frame = frame
         self.addImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\plus.png").resize((20, 20)))
-        self.addAlarmPage = AddAlarmPage(self.window, self.frame)
+        self.addAlarmPage = AddAlarmPage(self.window, self.frame, self.listOfAlarms)
         self.CreateAddBtn()
         
         

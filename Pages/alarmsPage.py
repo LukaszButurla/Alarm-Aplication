@@ -13,8 +13,8 @@ class AlarmsPage:
 
         self.window = root
         self.CreateAlarmsPage()
-        self.addBtn = AddAlarmBtn(self.frame, self.window)
         self.listOfAlarms = ListOfAlarms(self.frame)
+        self.addBtn = AddAlarmBtn(self.frame, self.window, self.listOfAlarms)
         
     def CreateAlarmsPage(self):
 
