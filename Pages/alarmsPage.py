@@ -6,15 +6,17 @@ class AlarmsPage:
 
     window = None
     frame = None
+    menuFrame = None
     listOfAlarms = None
     addBtn = None
 
-    def __init__(self, root):
+    def __init__(self, root, menuFrame):
 
         self.window = root
+        self.menuFrame = menuFrame
         self.CreateAlarmsPage()
         self.listOfAlarms = ListOfAlarms(self.frame)
-        self.addBtn = AddAlarmBtn(self.frame, self.window, self.listOfAlarms)
+        self.addBtn = AddAlarmBtn(self.frame, self.menuFrame, self.window, self.listOfAlarms)
         
     def CreateAlarmsPage(self):
 

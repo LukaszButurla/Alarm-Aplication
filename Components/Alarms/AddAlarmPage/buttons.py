@@ -9,6 +9,7 @@ class Buttons:
     
     page = None
     frame = None
+    menuFrame = None
     listOfAlarms = None
     hourOfAlarm = None
     addHourBtn = None
@@ -20,11 +21,11 @@ class Buttons:
     minute = None
     hour = None
     
-    def __init__(self, frame, page, list):
+    def __init__(self, frame, page, menuFrame, list):
         
         self.page = page
+        self.menuFrame = menuFrame
         self.listOfAlarms = list
-        print(self.page)
         self.frame = frame
         self.hourOfAlarm = HourOfAlarm(self.frame)
         self.minute = Configuration.minute
@@ -59,12 +60,15 @@ class Buttons:
         
         self.hourOfAlarm.EditLabel(self.hour, self.minute)
         self.page.tkraise()
+        self.menuFrame.tkraise()        
         
     def AddAlarm(self):
-        
+               
         alarm = Alarms(True, self.hour, self.minute, 3, False, "opis")
+        
+        self.menuFrame.tkraise()
         self.page.tkraise()
-        self.listOfAlarms.ShowAlarms()
+        self.listOfAlarms.ShowAlarms()        
         
         
     def AddOrSubtract(self, time, number):
