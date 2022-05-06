@@ -8,17 +8,19 @@ class Buttons:
     
     frame = None
     hourOfAlarm = None
-    alarmConfiguration = None
     addHourBtn = None
     subtractHourBtn = None
     addMinuteBtn = None
     subtractMinuteBtn = None
+    minute = None
+    hour = None
     
     def __init__(self, frame):
         
         self.frame = frame
         self.hourOfAlarm = HourOfAlarm(self.frame)
-        self.alarmConfiguration = Configuration
+        self.minute = Configuration.minute
+        self.hour = Configuration.hour
         self.CreateButtons()
         
     def CreateButtons(self):
@@ -39,13 +41,33 @@ class Buttons:
         
         if time == "hour":
             
-            self.alarmConfiguration.hour += number
+            if self.hour + number >= 0 and self.hour + number <= 23:
+                
+                self.hour += number
+                
+            elif self.hour + number < 0:
+                
+                self.hour = 23
+                
+            elif self.hour + number > 23:
+                
+                self.hour = 0            
             
         elif time == "minute":
             
-            self.alarmConfiguration.minute += number
+            if self.minute + number >= 0 and self.minute + number <= 59:
+                
+                self.minute += number
+                
+            elif self.minute + number < 0:
+                
+                self.minute = 59
+                
+            elif self.minute + number > 59:
+                
+                self.minute = 0                     
             
-        self.hourOfAlarm.EditLabel(self.alarmConfiguration.hour, self.alarmConfiguration.minute)
+        self.hourOfAlarm.EditLabel(self.hour, self.minute)
             
         
         

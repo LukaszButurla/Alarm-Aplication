@@ -17,4 +17,12 @@ class HourOfAlarm:
         
     def EditLabel(self, hour, minute):
         
+        if len(str(hour)) < 2:
+            
+            hour = "0" + str(hour)
+            
+        if len(str(minute)) < 2:
+            
+            minute = "0" + str(minute)
+                
         self.hourLabel.configure(text = "{}:{}".format(hour, minute))
