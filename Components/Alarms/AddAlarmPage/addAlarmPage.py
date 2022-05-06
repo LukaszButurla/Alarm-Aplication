@@ -1,4 +1,4 @@
-from Components.Alarms.AddAlarmPage.hourOfAlarm import HourOfAlarm
+from Components.Alarms.AddAlarmPage.buttons import Buttons
 from tkinter import Frame
 
 
@@ -6,18 +6,17 @@ class AddAlarmPage:
     
     window = None
     addFrame = None
-    hourOfAlarm = None
+    buttons = None
     
     def __init__(self, window):
         
         self.frame = window
         self.CreateFrame()
-        self.hourOfAlarm = HourOfAlarm(self.addFrame)
+        self.buttons = Buttons(self.addFrame)
         
     def CreateFrame(self):
         
         self.addFrame = Frame(self.window, width=350, height=550)
-        # self.addFrame.place(x = 0, y = 0)
         
     def ShowAddFrame(self):
         
