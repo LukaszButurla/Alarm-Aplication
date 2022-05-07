@@ -1,6 +1,7 @@
 from Components.Alarms.AddAlarmPage.buttons import Buttons
 from Components.Alarms.AddAlarmPage.alarmConfiguration import Configuration
 from Components.Alarms.AddAlarmPage.repeatAlarm import RepeatAlarm
+from Components.Alarms.AddAlarmPage.colorOfAlarm import ColorOfAlarm
 from tkinter import Frame
 
 
@@ -12,6 +13,7 @@ class AddAlarmPage:
     buttons = None
     listOfAlarms = None
     repeatAlarm = None
+    colorOfAlarm = None
 
     def __init__(self, window, page, menuFrame, list):
         
@@ -20,6 +22,7 @@ class AddAlarmPage:
         self.listOfAlarms = list
         self.CreateFrame()
         self.repeatAlarm = RepeatAlarm(self.addFrame)
+        self.colorOfAlarm = ColorOfAlarm(self.addFrame)
         self.buttons = Buttons(self.addFrame, page, menuFrame, self.listOfAlarms)
         
     def CreateFrame(self):
