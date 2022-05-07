@@ -46,10 +46,8 @@ class Buttons:
         self.cancelBtn.place(x = 20, y = 500)
         
         self.addAlarmBtn = Button(self.frame, text = "Add", command = self.AddAlarm)
-        self.addAlarmBtn.place(x = 230, y = 500)
-        
-                
-        
+        self.addAlarmBtn.place(x = 230, y = 500)                      
+                    
     def Cancel(self):        
         
         self.page.tkraise()
@@ -57,7 +55,9 @@ class Buttons:
         
     def AddAlarm(self):  
     
-        alarm = Alarms(True, aC.hour, aC.minute, 3, False, "opis", aC.color)
+        alarm = Alarms(True, aC.hour, aC.minute, aC.days, False, "opis", aC.color)
+        
+        print(aC.days)
         
         self.menuFrame.tkraise()
         self.page.tkraise()
