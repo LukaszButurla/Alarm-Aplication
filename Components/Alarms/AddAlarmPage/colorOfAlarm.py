@@ -91,3 +91,10 @@ class ColorOfAlarm:
             self.redBtn.configure(image = self.redImg)
             self.pinkBtn.configure(image = self.pinkImg)
             self.orangeBtn.configure(image = self.orangeSelectedImg)
+            
+        else:
+            
+            self.blueBtn.configure(image = self.blueImg)
+            self.redBtn.configure(image = self.redImg)
+            self.pinkBtn.configure(image = self.pinkImg)
+            self.orangeBtn.configure(image = self.orangeImg)

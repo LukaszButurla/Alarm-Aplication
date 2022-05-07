@@ -47,14 +47,11 @@ class Buttons:
         
         self.addAlarmBtn = Button(self.frame, text = "Add", command = self.AddAlarm)
         self.addAlarmBtn.place(x = 230, y = 500)
+        
                 
         
-    def Cancel(self):
+    def Cancel(self):        
         
-        aC.hour = 0
-        aC.minute = 0
-        
-        self.hourOfAlarm.EditLabel(aC.hour, aC.minute)
         self.page.tkraise()
         self.menuFrame.tkraise()        
         

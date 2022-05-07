@@ -1,4 +1,5 @@
 from Components.Alarms.AddAlarmPage.addAlarmPage import AddAlarmPage
+import Components.Alarms.AddAlarmPage.alarmConfiguration as aC
 from PIL import Image, ImageTk
 from tkinter import Button
 
@@ -30,6 +31,25 @@ class AddAlarmBtn:
         self.addBtn.place(x = 250, y = 20)
         
     def OpenAddPage(self):        
-
-
+        
         self.addAlarmPage.ShowAddFrame()
+        self.ResetValues()
+        
+    def ResetValues(self):       
+            
+        aC.hour = 0
+        aC.minute = 0
+        aC.color = "white"
+        aC.monday = False
+        aC.tuesday = False
+        aC.wednesday = False
+        aC.thursday = False
+        aC.friday = False
+        aC.saturday = False
+        aC.sunday = False
+        
+        self.addAlarmPage.colorOfAlarm.EditButtons()
+        self.addAlarmPage.repeatAlarm.EditButtons()
+        self.addAlarmPage.buttons.hourOfAlarm.EditLabel(aC.hour, aC.minute)
+        
+       
