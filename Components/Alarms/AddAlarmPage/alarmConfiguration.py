@@ -12,4 +12,5 @@ class Configuration:
     friday = False
     saturday = False
     sunday = False
+    color = "white"
     

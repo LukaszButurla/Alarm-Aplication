@@ -1,6 +1,7 @@
 from Components.Alarms.AddAlarmPage.alarmConfiguration import Configuration
 from tkinter import Button, Frame, Label, SUNKEN
 from PIL import Image, ImageTk
+from functools import partial
 
 
 class ColorOfAlarm:
@@ -16,6 +17,11 @@ class ColorOfAlarm:
     redImg = None
     pinkImg = None
     orangeImg = None
+    blueSelectedImg = None
+    redSelectedImg = None
+    pinkSelectedImg = None
+    orangeSelectedImg = None
+    color = None
         
     def __init__(self, frame):
         
@@ -23,9 +29,14 @@ class ColorOfAlarm:
         self.redImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\red-circle.png").resize((35, 35)))
         self.pinkImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\pink-circle.png").resize((35, 35)))
         self.orangeImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\orange-circle.png").resize((35, 35)))
+        self.blueSelectedImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\blue-selected.png").resize((35, 35)))
+        self.redSelectedImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\red-selected.png").resize((35, 35)))
+        self.pinkSelectedImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\pink-selected.png").resize((35, 35)))
+        self.orangeSelectedImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\orange-selected.png").resize((35, 35)))
         
         self.frame = frame
         self.configuration = Configuration()
+        self.color = self.configuration.color
         self.CreateFrame()
         print("init col")
         
@@ -37,14 +48,50 @@ class ColorOfAlarm:
         txt = Label(self.colorFrame, text = "Select color:", font=("Calibri", 18) ,bg = "white")
         txt.place(x = 0, y = 0)
         
-        self.blueBtn = Button(self.colorFrame, image = self.blueImg, borderwidth=0, bg = "white", relief=SUNKEN, activebackground= "white")
+        self.blueBtn = Button(self.colorFrame, image = self.blueImg, borderwidth=0, bg = "white", relief=SUNKEN, activebackground= "white", command=partial(self.SelectColor, "blue"))
         self.blueBtn.place(x = 40, y = 50, width=37, height=37)
         
-        self.redBtn = Button(self.colorFrame, image = self.redImg, borderwidth=0, bg = "white", relief=SUNKEN, activebackground= "white")
+        self.redBtn = Button(self.colorFrame, image = self.redImg, borderwidth=0, bg = "white", relief=SUNKEN, activebackground= "white", command=partial(self.SelectColor, "red"))
         self.redBtn.place(x = 100, y = 50, width=37, height=37)
         
-        self.pinkBtn = Button(self.colorFrame, image = self.pinkImg, borderwidth=0, bg = "white", relief=SUNKEN, activebackground= "white")
+        self.pinkBtn = Button(self.colorFrame, image = self.pinkImg, borderwidth=0, bg = "white", relief=SUNKEN, activebackground= "white", command=partial(self.SelectColor, "pink"))
         self.pinkBtn.place(x = 160, y = 50, width=37, height=37)
         
-        self.orangeBtn = Button(self.colorFrame, image = self.orangeImg, borderwidth=0, bg = "white", relief=SUNKEN, activebackground= "white")
+        self.orangeBtn = Button(self.colorFrame, image = self.orangeImg, borderwidth=0, bg = "white", relief=SUNKEN, activebackground= "white", command=partial(self.SelectColor, "orange"))
         self.orangeBtn.place(x = 220, y = 50, width=37, height=37)
+        
+    def SelectColor(self, color):
+        
+        self.color = color
+        print(self.color)
+        self.EditButtons()
+        
+    def EditButtons(self):
+        
+        if self.color == "blue":
+            
+            self.blueBtn.configure(image = self.blueSelectedImg)
+            self.redBtn.configure(image = self.redImg)
+            self.pinkBtn.configure(image = self.pinkImg)
+            self.orangeBtn.configure(image = self.orangeImg)
+            
+        elif self.color == "red":
+            
+            self.blueBtn.configure(image = self.blueImg)
+            self.redBtn.configure(image = self.redSelectedImg)
+            self.pinkBtn.configure(image = self.pinkImg)
+            self.orangeBtn.configure(image = self.orangeImg)
+            
+        elif self.color == "pink":
+            
+            self.blueBtn.configure(image = self.blueImg)
+            self.redBtn.configure(image = self.redImg)
+            self.pinkBtn.configure(image = self.pinkSelectedImg)
+            self.orangeBtn.configure(image = self.orangeImg)
+            
+        elif self.color == "orange":
+            
+            self.blueBtn.configure(image = self.blueImg)
+            self.redBtn.configure(image = self.redImg)
+            self.pinkBtn.configure(image = self.pinkImg)
+            self.orangeBtn.configure(image = self.orangeSelectedImg)
