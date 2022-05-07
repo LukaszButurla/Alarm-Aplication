@@ -68,7 +68,7 @@ class Buttons:
         
         self.menuFrame.tkraise()
         self.page.tkraise()
-        self.listOfAlarms.ShowAlarms()        
+        self.listOfAlarms.ShowAlarms()                
         
         
     def AddOrSubtract(self, time, number):
