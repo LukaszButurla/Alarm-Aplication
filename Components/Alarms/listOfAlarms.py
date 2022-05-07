@@ -33,6 +33,7 @@ class ListOfAlarms:
             print("Hour: {}".format(a.hour))
             print("Minute: {}".format(a.minute))
             print("On: {}".format(a.on))
+            print("days: {}".format(a.days))
             
             labelF = PanedWindow(self.frame, bg = a.color)
             labelF.place(x = 0, y = i * 75, width=300, height= 70)
