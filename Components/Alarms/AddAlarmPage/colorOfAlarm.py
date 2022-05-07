@@ -1,4 +1,4 @@
-from Components.Alarms.AddAlarmPage.alarmConfiguration import Configuration
+import Components.Alarms.AddAlarmPage.alarmConfiguration as aC
 from tkinter import Button, Frame, Label, SUNKEN
 from PIL import Image, ImageTk
 from functools import partial
@@ -8,7 +8,6 @@ class ColorOfAlarm:
     
     frame = None
     colorFrame = None
-    configuration = None
     blueBtn = None
     redBtn = None
     pinkBtn = None
@@ -21,7 +20,6 @@ class ColorOfAlarm:
     redSelectedImg = None
     pinkSelectedImg = None
     orangeSelectedImg = None
-    color = None
         
     def __init__(self, frame):
         
@@ -35,10 +33,8 @@ class ColorOfAlarm:
         self.orangeSelectedImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\orange-selected.png").resize((35, 35)))
         
         self.frame = frame
-        self.configuration = Configuration()
-        self.color = self.configuration.color
+        
         self.CreateFrame()
-        print("init col")
         
     def CreateFrame(self):
         
@@ -62,34 +58,34 @@ class ColorOfAlarm:
         
     def SelectColor(self, color):
         
-        self.color = color
-        print(self.color)
+        aC.color = color
+                
         self.EditButtons()
         
     def EditButtons(self):
         
-        if self.color == "blue":
+        if aC.color == "blue":
             
             self.blueBtn.configure(image = self.blueSelectedImg)
             self.redBtn.configure(image = self.redImg)
             self.pinkBtn.configure(image = self.pinkImg)
             self.orangeBtn.configure(image = self.orangeImg)
             
-        elif self.color == "red":
+        elif aC.color == "red":
             
             self.blueBtn.configure(image = self.blueImg)
             self.redBtn.configure(image = self.redSelectedImg)
             self.pinkBtn.configure(image = self.pinkImg)
             self.orangeBtn.configure(image = self.orangeImg)
             
-        elif self.color == "pink":
+        elif aC.color == "pink":
             
             self.blueBtn.configure(image = self.blueImg)
             self.redBtn.configure(image = self.redImg)
             self.pinkBtn.configure(image = self.pinkSelectedImg)
             self.orangeBtn.configure(image = self.orangeImg)
             
-        elif self.color == "orange":
+        elif aC.color == "orange":
             
             self.blueBtn.configure(image = self.blueImg)
             self.redBtn.configure(image = self.redImg)

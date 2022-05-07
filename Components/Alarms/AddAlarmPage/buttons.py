@@ -1,5 +1,5 @@
 from tkinter import Button
-from Components.Alarms.AddAlarmPage.alarmConfiguration import Configuration
+import Components.Alarms.AddAlarmPage.alarmConfiguration as aC
 from Components.Alarms.AddAlarmPage.hourOfAlarm import HourOfAlarm
 from Components.Alarms.alarms import Alarms
 from functools import partial
@@ -18,8 +18,6 @@ class Buttons:
     subtractMinuteBtn = None
     cancelBtn = None
     addAlarmBtn = None
-    minute = None
-    hour = None
     
     def __init__(self, frame, page, menuFrame, list):
         
@@ -28,8 +26,6 @@ class Buttons:
         self.listOfAlarms = list
         self.frame = frame
         self.hourOfAlarm = HourOfAlarm(self.frame)
-        self.minute = Configuration.minute
-        self.hour = Configuration.hour
         self.CreateButtons()
         
     def CreateButtons(self):
@@ -55,16 +51,16 @@ class Buttons:
         
     def Cancel(self):
         
-        self.hour = 0
-        self.minute = 0
+        aC.hour = 0
+        aC.minute = 0
         
-        self.hourOfAlarm.EditLabel(self.hour, self.minute)
+        self.hourOfAlarm.EditLabel(aC.hour, aC.minute)
         self.page.tkraise()
         self.menuFrame.tkraise()        
         
-    def AddAlarm(self):
-               
-        alarm = Alarms(True, self.hour, self.minute, 3, False, "opis")
+    def AddAlarm(self):  
+    
+        alarm = Alarms(True, aC.hour, aC.minute, 3, False, "opis", aC.color)
         
         self.menuFrame.tkraise()
         self.page.tkraise()
@@ -75,33 +71,33 @@ class Buttons:
         
         if time == "hour":
             
-            if self.hour + number >= 0 and self.hour + number <= 23:
+            if aC.hour + number >= 0 and aC.hour + number <= 23:
                 
-                self.hour += number
+                aC.hour += number
+
+            elif aC.hour + number < 0:
                 
-            elif self.hour + number < 0:
+                aC.hour = 23
                 
-                self.hour = 23
+            elif aC.hour + number > 23:
                 
-            elif self.hour + number > 23:
-                
-                self.hour = 0            
+                aC.hour = 0            
             
         elif time == "minute":
             
-            if self.minute + number >= 0 and self.minute + number <= 59:
+            if aC.minute + number >= 0 and aC.minute + number <= 59:
                 
-                self.minute += number
+                aC.minute += number
                 
-            elif self.minute + number < 0:
+            elif aC.minute + number < 0:
                 
-                self.minute = 59
+                aC.minute = 59
                 
-            elif self.minute + number > 59:
+            elif aC.minute + number > 59:
                 
-                self.minute = 0                     
+                aC.minute = 0                     
             
-        self.hourOfAlarm.EditLabel(self.hour, self.minute)
+        self.hourOfAlarm.EditLabel(aC.hour, aC.minute)
             
         
         

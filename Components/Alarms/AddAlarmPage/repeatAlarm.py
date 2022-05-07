@@ -1,5 +1,5 @@
 from xml.etree.ElementTree import TreeBuilder
-from Components.Alarms.AddAlarmPage.alarmConfiguration import Configuration
+import Components.Alarms.AddAlarmPage.alarmConfiguration as aC
 from PIL import Image, ImageTk
 from tkinter import CENTER, Button, SUNKEN
 from functools import partial
@@ -16,28 +16,12 @@ class RepeatAlarm:
     btnSunday = None
     circle = None
     blueCircle = None
-    configuration = None
-    monday = None
-    tuesday = None
-    wednesday = None
-    thursday = None
-    friday = None
-    saturday = None
-    sunday = None
     
     def __init__(self, frame):
         
         self.frame = frame
         self.circle = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\circle.png").resize((35, 35)))
         self.blueCircle = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\blue-circle.png").resize((35, 35)))
-        self.configuration = Configuration()
-        self.monday = self.configuration.monday
-        self.tuesday = self.configuration.tuesday
-        self.wednesday = self.configuration.wednesday
-        self.thursday = self.configuration.thursday
-        self.friday = self.configuration.friday
-        self.saturday = self.configuration.saturday
-        self.sunday = self.configuration.sunday
         self.CreateButtonsOfDays()
         
     def CreateButtonsOfDays(self):
@@ -67,132 +51,132 @@ class RepeatAlarm:
         
         if day == "monday":
         
-            if self.monday == False:
+            if aC.monday == False:
                 
-                self.monday = True
+                aC.monday = True
                 
-            elif self.monday == True:
+            elif aC.monday == True:
                 
-                self.monday = False
+                aC.monday = False
                 
         elif day == "tuesday":
             
-            if self.tuesday == True:
+            if aC.tuesday == True:
                 
-                self.tuesday = False
+                aC.tuesday = False
             
-            elif self.tuesday == False:
+            elif aC.tuesday == False:
                 
-                self.tuesday = True
+                aC.tuesday = True
                 
         elif day == "wednesday":
             
-            if self.wednesday == True:
+            if aC.wednesday == True:
                 
-                self.wednesday = False
+                aC.wednesday = False
             
-            elif self.wednesday == False:
+            elif aC.wednesday == False:
                 
-                self.wednesday = True
+                aC.wednesday = True
                 
         elif day == "thursday":
             
-            if self.thursday == True:
+            if aC.thursday == True:
                 
-                self.thursday = False
+                aC.thursday = False
             
-            elif self.thursday == False:
+            elif aC.thursday == False:
                 
-                self.thursday = True
+                aC.thursday = True
                 
         elif day == "friday":
             
-            if self.friday == True:
+            if aC.friday == True:
                 
-                self.friday = False
+                aC.friday = False
             
-            elif self.friday == False:
+            elif aC.friday == False:
                 
-                self.friday = True
+                aC.friday = True
                 
         elif day == "saturday":
             
-            if self.saturday == True:
+            if aC.saturday == True:
                 
-                self.saturday = False
+                aC.saturday = False
             
-            elif self.saturday == False:
+            elif aC.saturday == False:
                 
-                self.saturday = True
+                aC.saturday = True
                 
         elif day == "sunday":
                 
-            if self.sunday == True:
+            if aC.sunday == True:
                 
-                self.sunday = False
+                aC.sunday = False
             
-            elif self.sunday == False:
+            elif aC.sunday == False:
                 
-                self.sunday = True
+                aC.sunday = True
                 
         self.EditButtons()
             
         
     def EditButtons(self):
         
-        if self.monday == True:
+        if aC.monday == True:
             
             self.btnMonday.configure(image = self.blueCircle)
             
-        elif self.monday == False:
+        elif aC.monday == False:
             
             self.btnMonday.configure(image = self.circle)
             
-        if self.tuesday == True:
+        if aC.tuesday == True:
             
             self.btnTuesday.configure(image = self.blueCircle)
             
-        elif self.tuesday == False:
+        elif aC.tuesday == False:
             
             self.btnTuesday.configure(image = self.circle)
             
-        if self.wednesday == True:
+        if aC.wednesday == True:
             
             self.btnWednesday.configure(image = self.blueCircle)
             
-        elif self.wednesday == False:
+        elif aC.wednesday == False:
             
             self.btnWednesday.configure(image = self.circle)
             
-        if self.thursday == True:
+        if aC.thursday == True:
             
             self.btnThursday.configure(image = self.blueCircle)
             
-        elif self.thursday == False:
+        elif aC.thursday == False:
             
             self.btnThursday.configure(image = self.circle)
             
-        if self.friday == True:
+        if aC.friday == True:
             
             self.btnFriday.configure(image = self.blueCircle)
             
-        elif self.friday == False:
+        elif aC.friday == False:
             
             self.btnFriday.configure(image = self.circle)
             
-        if self.saturday == True:
+        if aC.saturday == True:
             
             self.btnSaturday.configure(image = self.blueCircle)
         
-        elif self.saturday == False:
+        elif aC.saturday == False:
             
             self.btnSaturday.configure(image = self.circle)
             
-        if self.sunday == True:
+        if aC.sunday == True:
             
             self.btnSunday.configure(image = self.blueCircle)
             
-        elif self.sunday == False:
+        elif aC.sunday == False:
             
             self.btnSunday.configure(image = self.circle)
             

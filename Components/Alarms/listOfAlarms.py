@@ -34,7 +34,7 @@ class ListOfAlarms:
             print("Minute: {}".format(a.minute))
             print("On: {}".format(a.on))
             
-            labelF = PanedWindow(self.frame, bg = "white")
+            labelF = PanedWindow(self.frame, bg = a.color)
             labelF.place(x = 0, y = i * 75, width=300, height= 70)
             
             labelHourMinute = Label(labelF, text = "{}:{}".format(a.hour, a.minute), font=("Calibri", 30))
@@ -45,11 +45,11 @@ class ListOfAlarms:
             
             if a.on == True:                
             
-                btn = Button(labelF, image = self.btnOn, borderwidth=0, bg = "white", command=partial(self.ClickBtn, a))
+                btn = Button(labelF, image = self.btnOn, borderwidth=0, bg = a.color, command=partial(self.ClickBtn, a))
                 
             elif a.on == False:
                 
-                btn = Button(labelF, image = self.btnOff, borderwidth=0, bg = "white", command=partial(self.ClickBtn, a))
+                btn = Button(labelF, image = self.btnOff, borderwidth=0, bg = a.color, command=partial(self.ClickBtn, a))
                 
             btn.place(x = 220, y = 6)
             i += 1

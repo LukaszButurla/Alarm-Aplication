@@ -18,7 +18,6 @@ class Main:
         self.window = Tk()
         self.window.geometry("300x550")
         self.window.configure(bg = "white")
-        print(self.window, "main window")
 
     def Update(self):
 

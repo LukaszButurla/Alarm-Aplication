@@ -1,5 +1,5 @@
 from Components.Alarms.AddAlarmPage.buttons import Buttons
-from Components.Alarms.AddAlarmPage.alarmConfiguration import Configuration
+from Components.Alarms.AddAlarmPage.alarmConfiguration import *
 from Components.Alarms.AddAlarmPage.repeatAlarm import RepeatAlarm
 from Components.Alarms.AddAlarmPage.colorOfAlarm import ColorOfAlarm
 from tkinter import Frame
