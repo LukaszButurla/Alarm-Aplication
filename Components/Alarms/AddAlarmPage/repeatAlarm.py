@@ -51,132 +51,133 @@ class RepeatAlarm:
         
         if day == "monday":
         
-            if aC.days["monday"] == False:
+            if 1 in aC.days:
                 
-                aC.days["monday"] = True
+                aC.days.remove(1)
                 
-            elif aC.days["monday"] == True:
+            elif not 1 in aC.days:
                 
-                aC.days["monday"] = False
+                aC.days.append(1)
                 
         elif day == "tuesday":
             
-            if aC.days["tuesday"] == True:
+            if 2 in aC.days:
                 
-                aC.days["tuesday"] = False
+                aC.days.remove(2)
             
-            elif aC.days["tuesday"] == False:
+            elif not 2 in aC.days:
                 
-                aC.days["tuesday"] = True
+                aC.days.append(2)
                 
         elif day == "wednesday":
             
-            if aC.days["wednesday"] == True:
+            if 3 in aC.days:
                 
-                aC.days["wednesday"] = False
+                aC.days.remove(3)
             
-            elif aC.days["wednesday"] == False:
+            elif not 3 in aC.days:
                 
-                aC.days["wednesday"] = True
+                aC.days.append(3)
                 
         elif day == "thursday":
             
-            if aC.days["thursday"] == True:
+            if 4 in aC.days:
                 
-                aC.days["thursday"] = False
+                aC.days.remove(4)
             
-            elif aC.days["thursday"] == False:
+            elif not 4 in aC.days:
                 
-                aC.days["thursday"] = True
+                aC.days.append(4)
                 
         elif day == "friday":
             
-            if aC.days["friday"] == True:
+            if 5 in aC.days:
                 
-                aC.days["friday"] = False
+                aC.days.remove(5)
             
-            elif aC.days["friday"] == False:
-                
-                aC.days["friday"] = True
+            elif not 5 in aC.days:
+            
+                aC.days.append(5)
                 
         elif day == "saturday":
             
-            if aC.days["saturday"] == True:
+            if 6 in aC.days:
                 
-                aC.days["saturday"] = False
+                aC.days.remove(6)
             
-            elif aC.days["saturday"] == False:
+            elif not 6 in aC.days:
                 
-                aC.days["saturday"] = True
+                aC.days.append(6)
                 
         elif day == "sunday":
                 
-            if aC.days["sunday"] == True:
+            if 7 in aC.days:
                 
-                aC.days["sunday"] = False
+                aC.days.remove(7)
             
-            elif aC.days["sunday"] == False:
+            elif not 7 in aC.days:
                 
-                aC.days["sunday"] = True
+                aC.days.append(7)
                 
+        print(aC.days)
         self.EditButtons()
             
         
     def EditButtons(self):
         
-        if aC.days["monday"] == True:
+        if 1 in aC.days:
             
             self.btnMonday.configure(image = self.blueCircle)
             
-        elif aC.days["monday"] == False:
+        elif not 1 in aC.days:
             
             self.btnMonday.configure(image = self.circle)
             
-        if aC.days["tuesday"] == True:
+        if 2 in aC.days:
             
             self.btnTuesday.configure(image = self.blueCircle)
             
-        elif aC.days["tuesday"] == False:
+        elif not 2 in aC.days:
             
             self.btnTuesday.configure(image = self.circle)
             
-        if aC.days["wednesday"] == True:
+        if 3 in aC.days:
             
             self.btnWednesday.configure(image = self.blueCircle)
             
-        elif aC.days["wednesday"] == False:
+        elif not 3 in aC.days:
             
             self.btnWednesday.configure(image = self.circle)
             
-        if aC.days["thursday"] == True:
+        if 4 in aC.days:
             
             self.btnThursday.configure(image = self.blueCircle)
             
-        elif aC.days["thursday"] == False:
+        elif not 4 in aC.days:
             
             self.btnThursday.configure(image = self.circle)
             
-        if aC.days["friday"] == True:
+        if 5 in aC.days:
             
             self.btnFriday.configure(image = self.blueCircle)
             
-        elif aC.days["friday"] == False:
+        elif not 5 in aC.days:
             
             self.btnFriday.configure(image = self.circle)
             
-        if aC.days["saturday"] == True:
+        if 6 in aC.days:
             
             self.btnSaturday.configure(image = self.blueCircle)
         
-        elif aC.days["saturday"] == False:
+        elif not 6 in aC.days:
             
             self.btnSaturday.configure(image = self.circle)
             
-        if aC.days["sunday"] == True:
+        if 7 in aC.days:
             
             self.btnSunday.configure(image = self.blueCircle)
             
-        elif aC.days["sunday"] == False:
+        elif not 7 in aC.days:
             
             self.btnSunday.configure(image = self.circle)
             

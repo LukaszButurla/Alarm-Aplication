@@ -40,13 +40,7 @@ class AddAlarmBtn:
         aC.hour = 0
         aC.minute = 0
         aC.color = "white"
-        aC.monday = False
-        aC.tuesday = False
-        aC.wednesday = False
-        aC.thursday = False
-        aC.friday = False
-        aC.saturday = False
-        aC.sunday = False
+        aC.days = []
         
         self.addAlarmPage.colorOfAlarm.EditButtons()
         self.addAlarmPage.repeatAlarm.EditButtons()
