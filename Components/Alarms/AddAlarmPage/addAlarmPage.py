@@ -24,6 +24,7 @@ class AddAlarmPage:
         self.repeatAlarm = RepeatAlarm(self.addFrame)
         self.colorOfAlarm = ColorOfAlarm(self.addFrame)
         self.buttons = Buttons(self.addFrame, page, menuFrame, self.listOfAlarms)
+        self.buttons.CreateButtonsAddCancel()
         
     def CreateFrame(self):
         

@@ -26,9 +26,9 @@ class Buttons:
         self.listOfAlarms = list
         self.frame = frame
         self.hourOfAlarm = HourOfAlarm(self.frame)
-        self.CreateButtons()
+        self.CreateButtonsHour()
         
-    def CreateButtons(self):
+    def CreateButtonsHour(self):
         
         self.addHourBtn = Button(self.frame, text = "+", command=partial(self.AddOrSubtract, "hour", 1))
         self.addHourBtn.place(x = 110, y = 60)
@@ -42,11 +42,33 @@ class Buttons:
         self.subtractMinuteBtn = Button(self.frame, text = "-", command=partial(self.AddOrSubtract, "minute", -1))
         self.subtractMinuteBtn.place(x = 200, y = 150)
         
+        
+    def CreateButtonsAddCancel(self):
+        
         self.cancelBtn = Button(self.frame, text = "Cancel", command = self.Cancel)
         self.cancelBtn.place(x = 20, y = 500)
         
         self.addAlarmBtn = Button(self.frame, text = "Add", command = self.AddAlarm)
-        self.addAlarmBtn.place(x = 230, y = 500)                      
+        self.addAlarmBtn.place(x = 230, y = 500)  
+        
+    def CreateButtonsEditCancel(self):
+        
+        self.cancelBtn = Button(self.frame, text = "Cancel", command = self.Cancel)
+        self.cancelBtn.place(x = 20, y = 500)
+        
+        self.addAlarmBtn = Button(self.frame, text = "Edit", command = self.EditAlarm)
+        self.addAlarmBtn.place(x = 230, y = 500)               
+        
+    def EditAlarm(self):
+                
+        aC.alarm.hour = aC.hour
+        aC.alarm.minute = aC.minute
+        aC.alarm.color = aC.color
+        aC.alarm.days = aC.days
+        
+        self.menuFrame.tkraise()
+        self.page.tkraise()
+        self.listOfAlarms.ShowAlarms()
                     
     def Cancel(self):        
         

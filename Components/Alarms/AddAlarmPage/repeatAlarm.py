@@ -119,7 +119,6 @@ class RepeatAlarm:
                 
                 aC.days.append(7)
                 
-        print(aC.days)
         self.EditButtons()
             
         
