@@ -1,4 +1,7 @@
-class Configuration:
+alarm = None
+hour = 0
+minute = 0
+days = []
 
-    hour = 0
-    minute = 0
+color = "white"
+    

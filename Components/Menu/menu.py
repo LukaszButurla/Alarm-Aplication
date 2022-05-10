@@ -28,11 +28,7 @@ class Menu:
     def __init__(self, root):
         
         self.window = root
-        self.timerPage = TimerPage(self.window)
-        self.alarmsPage = AlarmsPage(self.window)
-        self.infoPage = InfoPage(self.window)
-        self.timepiecePage = TimepiecePage(self.window)
-        self.clockPage = ClockPage(self.window)
+        
         
         self.alarmImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\alarm-clock.png").resize((40, 40)))
         self.infoImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\info.png").resize((40, 40)))
@@ -42,7 +38,13 @@ class Menu:
         
         self.CreateMenu()
         self.ShowMenu()
-
+        
+        self.timerPage = TimerPage(self.window)
+        self.infoPage = InfoPage(self.window)
+        self.timepiecePage = TimepiecePage(self.window)
+        self.alarmsPage = AlarmsPage(self.window, self.frame)
+        self.clockPage = ClockPage(self.window)
+        
     def CreateMenu(self):
         
         self.frame = Frame(self.window, height=60, width=300)

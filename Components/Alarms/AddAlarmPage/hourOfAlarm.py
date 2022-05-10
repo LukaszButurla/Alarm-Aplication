@@ -3,6 +3,7 @@ from tkinter import Label
 class HourOfAlarm:
     
     frame = None
+    alarm = None
     hourLabel = None
     
     def __init__(self, frame):
@@ -11,9 +12,10 @@ class HourOfAlarm:
         self.CreateHourLabel()
         
     def CreateHourLabel(self):
-        
+                
         self.hourLabel = Label(self.frame, text = "00:00", font=("Calibri", 50), anchor="nw")
-        self.hourLabel.place(x = 80, y = 70)
+        self.hourLabel.place(x = 80, y = 70)            
+        
         
     def EditLabel(self, hour, minute):
         

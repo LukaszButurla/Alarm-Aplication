@@ -1,5 +1,6 @@
 from tkinter import Tk, ttk
 from Components.Menu.menu import Menu
+from Components.Alarms.checkAlarms import CheckAlarms
 from time import sleep
 
 class Main:
@@ -11,7 +12,7 @@ class Main:
 
         self.ConfigureWindow()
         self.menu = Menu(self.window)
-        self.Update()
+        self.Update()        
 
     def ConfigureWindow(self):
 
@@ -30,6 +31,7 @@ class Main:
             self.menu.timerPage.timerBtn.timer.Count()
             self.menu.timepiecePage.timepieceBtn.timepiece.Countdown()
             self.menu.timepiecePage.timepieceBtn.PlaceButtons(self.menu.timepiecePage.timepieceBtn.timepiece.start, self.menu.timepiecePage.timepieceBtn.timepiece.pause)
+            CheckAlarms.Check()
 
         
 
