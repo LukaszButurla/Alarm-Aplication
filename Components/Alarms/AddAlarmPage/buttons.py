@@ -21,11 +21,15 @@ class Buttons:
     addAlarmBtn = None
     addImg = None
     subtractImg = None
+    acceptImg = None
+    cancelImg = None
     
     def __init__(self, frame, page, menuFrame, list):
         
         self.subtractImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\subtracting-button.png").resize((20, 20)))
         self.addImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\add.png").resize((20, 20)))
+        self.acceptImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\accept.png").resize((25, 25)))
+        self.cancelImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\cancel.png").resize((20, 20)))
         
         self.page = page
         self.menuFrame = menuFrame
@@ -51,19 +55,19 @@ class Buttons:
         
     def CreateButtonsAddCancel(self):
         
-        self.cancelBtn = Button(self.frame, text = "Cancel", command = self.Cancel)
-        self.cancelBtn.place(x = 20, y = 500)
+        self.cancelBtn = Button(self.frame, image = self.cancelImg, borderwidth=0, bg = "white", activebackground="white", command = self.Cancel)
+        self.cancelBtn.place(x = 20, y = 20)
         
-        self.addAlarmBtn = Button(self.frame, text = "Add", command = self.AddAlarm)
-        self.addAlarmBtn.place(x = 230, y = 500)  
+        self.addAlarmBtn = Button(self.frame, image = self.acceptImg, borderwidth=0, bg = "white", activebackground="white", command = self.AddAlarm)
+        self.addAlarmBtn.place(x = 250, y = 20)  
         
     def CreateButtonsEditCancel(self):
         
-        self.cancelBtn = Button(self.frame, text = "Cancel", command = self.Cancel)
-        self.cancelBtn.place(x = 20, y = 500)
+        self.cancelBtn = Button(self.frame, image = self.cancelImg, borderwidth=0, bg = "white", activebackground="white", command = self.Cancel)
+        self.cancelBtn.place(x = 20, y = 20)
         
-        self.addAlarmBtn = Button(self.frame, text = "Edit", command = self.EditAlarm)
-        self.addAlarmBtn.place(x = 230, y = 500)               
+        self.addAlarmBtn = Button(self.frame, image = self.acceptImg, borderwidth=0, bg = "white", activebackground="white", command = self.EditAlarm)
+        self.addAlarmBtn.place(x = 250, y = 20)               
         
     def EditAlarm(self):
                 
