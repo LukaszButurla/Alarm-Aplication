@@ -48,20 +48,20 @@ class ListOfAlarms:
             btn = Button(labelF, bg = a.color, borderwidth=0, relief=SUNKEN, activebackground= a.color, command=partial(self.editPage.ShowEditFrame, a))
             btn.place(x = 0,  y = 0, width=210, height=70)
             
-            labelHourMinute = Label(labelF, text = "{}:{}".format(a.hour, a.minute), font=("Calibri", 30))
+            labelHourMinute = Label(labelF, text = "{}:{}".format(a.hour, a.minute), font=("Calibri", 30),bg = a.color)
             labelHourMinute.place(x = 5, y = 0, width=100, height=40, anchor="nw")
             
-            labelDescription = Label(labelF, text = "{}".format(a.description), font=("Calibri", 10))
+            labelDescription = Label(labelF, text = "{}".format(a.description), font=("Calibri", 10), bg = a.color)
             labelDescription.place(x = 5, y = 45)
             
             
             if a.on == True:                
             
-                btn = Button(labelF, image = self.btnOn, borderwidth=0, bg = a.color, command=partial(self.ClickBtn, a))
+                btn = Button(labelF, image = self.btnOn, borderwidth=0, bg = a.color, command=partial(self.ClickBtn, a), relief=SUNKEN, activebackground= a.color)
                 
             elif a.on == False:
                 
-                btn = Button(labelF, image = self.btnOff, borderwidth=0, bg = a.color, command=partial(self.ClickBtn, a))
+                btn = Button(labelF, image = self.btnOff, borderwidth=0, bg = a.color, command=partial(self.ClickBtn, a), relief=SUNKEN, activebackground= a.color)
                 
             btn.place(x = 220, y = 6)
             i += 1

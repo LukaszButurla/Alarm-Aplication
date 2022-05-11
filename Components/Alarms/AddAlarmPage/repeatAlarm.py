@@ -26,25 +26,25 @@ class RepeatAlarm:
         
     def CreateButtonsOfDays(self):
         
-        self.btnMonday = Button(self.frame, relief=SUNKEN, image = self.circle, borderwidth=0, text = "Mon", command= partial(self.SetDay, "monday"), compound=CENTER, font=("Calibri", 10))
+        self.btnMonday = Button(self.frame, relief=SUNKEN, image = self.circle, borderwidth=0, activebackground="white",text = "Mon", command= partial(self.SetDay, "monday"), compound=CENTER, font=("Calibri", 10), bg = "white")
         self.btnMonday.place(x = 10, y = 225, width=37, height=37)
         
-        self.btnTuesday = Button(self.frame, relief=SUNKEN, image = self.circle, borderwidth=0, text = "Tue", command= partial(self.SetDay, "tuesday"), compound=CENTER, font=("Calibri", 10))
+        self.btnTuesday = Button(self.frame, relief=SUNKEN, image = self.circle, borderwidth=0, activebackground="white",text = "Tue", command= partial(self.SetDay, "tuesday"), compound=CENTER, font=("Calibri", 10), bg = "white")
         self.btnTuesday.place(x = 50, y = 225, width=37, height=37)
         
-        self.btnWednesday = Button(self.frame, relief=SUNKEN, image = self.circle, borderwidth=0, text = "Wed", command= partial(self.SetDay, "wednesday"), compound=CENTER, font=("Calibri", 10))
+        self.btnWednesday = Button(self.frame, relief=SUNKEN, image = self.circle, borderwidth=0, activebackground="white",text = "Wed", command= partial(self.SetDay, "wednesday"), compound=CENTER, font=("Calibri", 10), bg = "white")
         self.btnWednesday.place(x = 90, y = 225, width=37, height=37)
         
-        self.btnThursday = Button(self.frame, relief=SUNKEN, image = self.circle, borderwidth=0, text = "Thu", command= partial(self.SetDay, "thursday"), compound=CENTER, font=("Calibri", 10))
+        self.btnThursday = Button(self.frame, relief=SUNKEN, image = self.circle, borderwidth=0, activebackground="white",text = "Thu", command= partial(self.SetDay, "thursday"), compound=CENTER, font=("Calibri", 10), bg = "white")
         self.btnThursday.place(x = 130, y = 225, height=37, width=37)
         
-        self.btnFriday = Button(self.frame, relief=SUNKEN, image = self.circle, borderwidth=0, text = "Fri", command= partial(self.SetDay, "friday"), compound=CENTER, font=("Calibri", 10))
+        self.btnFriday = Button(self.frame, relief=SUNKEN, image = self.circle, borderwidth=0, activebackground="white",text = "Fri", command= partial(self.SetDay, "friday"), compound=CENTER, font=("Calibri", 10), bg = "white")
         self.btnFriday.place(x = 170, y = 225, width=37, height=37)
         
-        self.btnSaturday = Button(self.frame, relief=SUNKEN, image = self.circle, borderwidth=0, text = "Sat", command= partial(self.SetDay, "saturday"), compound=CENTER, font=("Calibri", 10))
+        self.btnSaturday = Button(self.frame, relief=SUNKEN, image = self.circle, borderwidth=0, activebackground="white",text = "Sat", command= partial(self.SetDay, "saturday"), compound=CENTER, font=("Calibri", 10), bg = "white")
         self.btnSaturday.place(x = 210, y = 225, width=37, height=37)
         
-        self.btnSunday = Button(self.frame, relief=SUNKEN, image = self.circle, borderwidth=0, text = "Sun", command= partial(self.SetDay, "sunday"), compound=CENTER, font=("Calibri", 10))
+        self.btnSunday = Button(self.frame, relief=SUNKEN, image = self.circle, borderwidth=0, activebackground="white",text = "Sun", command= partial(self.SetDay, "sunday"), compound=CENTER, font=("Calibri", 10), bg = "white")
         self.btnSunday.place(x = 250, y = 225, width=37, height=37)
         
     def SetDay(self, day):

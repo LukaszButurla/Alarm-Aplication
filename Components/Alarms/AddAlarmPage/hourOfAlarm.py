@@ -13,7 +13,7 @@ class HourOfAlarm:
         
     def CreateHourLabel(self):
                 
-        self.hourLabel = Label(self.frame, text = "00:00", font=("Calibri", 50), anchor="nw")
+        self.hourLabel = Label(self.frame, text = "00:00", font=("Calibri", 50), anchor="nw", bg = "white")
         self.hourLabel.place(x = 80, y = 70)            
         
         

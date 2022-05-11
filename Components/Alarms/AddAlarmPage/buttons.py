@@ -1,6 +1,7 @@
-from tkinter import Button
+from tkinter import SUNKEN, Button
 import Components.Alarms.AddAlarmPage.alarmConfiguration as aC
 from Components.Alarms.AddAlarmPage.hourOfAlarm import HourOfAlarm
+from PIL import Image, ImageTk
 from Components.Alarms.alarms import Alarms
 from functools import partial
 
@@ -18,8 +19,13 @@ class Buttons:
     subtractMinuteBtn = None
     cancelBtn = None
     addAlarmBtn = None
+    addImg = None
+    subtractImg = None
     
     def __init__(self, frame, page, menuFrame, list):
+        
+        self.subtractImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\subtracting-button.png").resize((20, 20)))
+        self.addImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\add.png").resize((20, 20)))
         
         self.page = page
         self.menuFrame = menuFrame
@@ -30,16 +36,16 @@ class Buttons:
         
     def CreateButtonsHour(self):
         
-        self.addHourBtn = Button(self.frame, text = "+", command=partial(self.AddOrSubtract, "hour", 1))
+        self.addHourBtn = Button(self.frame, image = self.addImg, borderwidth=0, relief=SUNKEN, bg = "white", activebackground="white",  command=partial(self.AddOrSubtract, "hour", 1))
         self.addHourBtn.place(x = 110, y = 60)
         
-        self.subtractHourBtn = Button(self.frame, text = "-", command=partial(self.AddOrSubtract, "hour", -1))
+        self.subtractHourBtn = Button(self.frame, image = self.subtractImg, borderwidth=0, relief=SUNKEN, bg = "white", activebackground="white",command=partial(self.AddOrSubtract, "hour", -1))
         self.subtractHourBtn.place(x = 110, y = 150)
         
-        self.addMinuteBtn = Button(self.frame, text = "+", command=partial(self.AddOrSubtract, "minute", 1))
+        self.addMinuteBtn = Button(self.frame, image = self.addImg, borderwidth=0, relief=SUNKEN, bg = "white", activebackground="white",command=partial(self.AddOrSubtract, "minute", 1))
         self.addMinuteBtn.place(x = 200, y = 60)
         
-        self.subtractMinuteBtn = Button(self.frame, text = "-", command=partial(self.AddOrSubtract, "minute", -1))
+        self.subtractMinuteBtn = Button(self.frame, image = self.subtractImg, borderwidth=0, relief=SUNKEN, bg = "white", activebackground="white",command=partial(self.AddOrSubtract, "minute", -1))
         self.subtractMinuteBtn.place(x = 200, y = 150)
         
         

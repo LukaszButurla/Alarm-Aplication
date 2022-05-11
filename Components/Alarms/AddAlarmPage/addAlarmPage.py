@@ -28,7 +28,7 @@ class AddAlarmPage:
         
     def CreateFrame(self):
         
-        self.addFrame = Frame(self.window, width=350, height=550)
+        self.addFrame = Frame(self.window, width=350, height=550, bg = "white")
         
     def ShowAddFrame(self):
         
