@@ -3,6 +3,7 @@ import Components.Alarms.AddAlarmPage.alarmConfiguration as aC
 from PIL import Image, ImageTk
 from tkinter import CENTER, Button, SUNKEN
 from functools import partial
+from Assets.Alarms import *
 
 class RepeatAlarm:
     
@@ -20,8 +21,8 @@ class RepeatAlarm:
     def __init__(self, frame):
         
         self.frame = frame
-        self.circle = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\circle.png").resize((35, 35)))
-        self.blueCircle = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\blue-circle.png").resize((35, 35)))
+        self.circle = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\circle.png").resize((35, 35)))
+        self.blueCircle = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\blue-circle.png").resize((35, 35)))
         self.CreateButtonsOfDays()
         
     def CreateButtonsOfDays(self):
