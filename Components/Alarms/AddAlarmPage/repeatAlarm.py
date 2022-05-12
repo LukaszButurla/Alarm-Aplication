@@ -50,75 +50,64 @@ class RepeatAlarm:
         
     def SetDay(self, day):
         
-        if day == "monday":
+        match(day):
+            
+            case "monday":
+                
+                if 1 in aC.days:
+                    aC.days.remove(1)
+                    
+                else:
+                    aC.days.append(1)
+                    
+            case "tuesday":
+                
+                if 2 in aC.days:
+                    aC.days.remove(2)
+                    
+                else:
+                    aC.days.append(2)
+                    
+            case "wednesday":
+                
+                if 3 in aC.days:
+                    aC.days.remove(3)
+                
+                else:
+                    aC.days.append(3)
+                    
+            case "thursday":
+                
+                if 4 in aC.days:
+                    aC.days.remove(4)
+                    
+                else:
+                    aC.days.append(4)
+                    
+            case "friday":
+                
+                if 5 in aC.days:
+                    aC.days.remove(5)
+                    
+                else:
+                    aC.days.append(5)
+                    
+            case "saturday":
+                
+                if 6 in aC.days:
+                    aC.days.remove(6)
+                    
+                else:
+                    aC.days.append(6)
+                    
+            case "sunday":
+                
+                if 7 in aC.days:
+                    aC.days.remove(7)
+                    
+                else:
+                    aC.days.append(7)
         
-            if 1 in aC.days:
-                
-                aC.days.remove(1)
-                
-            elif not 1 in aC.days:
-                
-                aC.days.append(1)
-                
-        elif day == "tuesday":
-            
-            if 2 in aC.days:
-                
-                aC.days.remove(2)
-            
-            elif not 2 in aC.days:
-                
-                aC.days.append(2)
-                
-        elif day == "wednesday":
-            
-            if 3 in aC.days:
-                
-                aC.days.remove(3)
-            
-            elif not 3 in aC.days:
-                
-                aC.days.append(3)
-                
-        elif day == "thursday":
-            
-            if 4 in aC.days:
-                
-                aC.days.remove(4)
-            
-            elif not 4 in aC.days:
-                
-                aC.days.append(4)
-                
-        elif day == "friday":
-            
-            if 5 in aC.days:
-                
-                aC.days.remove(5)
-            
-            elif not 5 in aC.days:
-            
-                aC.days.append(5)
-                
-        elif day == "saturday":
-            
-            if 6 in aC.days:
-                
-                aC.days.remove(6)
-            
-            elif not 6 in aC.days:
-                
-                aC.days.append(6)
-                
-        elif day == "sunday":
-                
-            if 7 in aC.days:
-                
-                aC.days.remove(7)
-            
-            elif not 7 in aC.days:
-                
-                aC.days.append(7)
                 
         self.EditButtons()
             
