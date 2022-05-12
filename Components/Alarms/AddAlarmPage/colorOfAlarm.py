@@ -65,37 +65,40 @@ class ColorOfAlarm:
         
     def EditButtons(self):
         
-        if aC.color == "blue":
+        match(aC.color):
             
-            self.blueBtn.configure(image = self.blueSelectedImg)
-            self.redBtn.configure(image = self.redImg)
-            self.pinkBtn.configure(image = self.pinkImg)
-            self.orangeBtn.configure(image = self.orangeImg)
-            
-        elif aC.color == "red":
-            
-            self.blueBtn.configure(image = self.blueImg)
-            self.redBtn.configure(image = self.redSelectedImg)
-            self.pinkBtn.configure(image = self.pinkImg)
-            self.orangeBtn.configure(image = self.orangeImg)
-            
-        elif aC.color == "pink":
-            
-            self.blueBtn.configure(image = self.blueImg)
-            self.redBtn.configure(image = self.redImg)
-            self.pinkBtn.configure(image = self.pinkSelectedImg)
-            self.orangeBtn.configure(image = self.orangeImg)
-            
-        elif aC.color == "orange":
-            
-            self.blueBtn.configure(image = self.blueImg)
-            self.redBtn.configure(image = self.redImg)
-            self.pinkBtn.configure(image = self.pinkImg)
-            self.orangeBtn.configure(image = self.orangeSelectedImg)
-            
-        else:
-            
-            self.blueBtn.configure(image = self.blueImg)
-            self.redBtn.configure(image = self.redImg)
-            self.pinkBtn.configure(image = self.pinkImg)
-            self.orangeBtn.configure(image = self.orangeImg)
+            case "blue":
+                
+                self.blueBtn.configure(image = self.blueSelectedImg)
+                self.redBtn.configure(image = self.redImg)
+                self.pinkBtn.configure(image = self.pinkImg)
+                self.orangeBtn.configure(image = self.orangeImg)
+                
+            case "red":
+                
+                self.blueBtn.configure(image = self.blueImg)
+                self.redBtn.configure(image = self.redSelectedImg)
+                self.pinkBtn.configure(image = self.pinkImg)
+                self.orangeBtn.configure(image = self.orangeImg)
+        
+            case "pink":
+                
+                self.blueBtn.configure(image = self.blueImg)
+                self.redBtn.configure(image = self.redImg)
+                self.pinkBtn.configure(image = self.pinkSelectedImg)
+                self.orangeBtn.configure(image = self.orangeImg)
+                
+            case "orange":
+                
+                self.blueBtn.configure(image = self.blueImg)
+                self.redBtn.configure(image = self.redImg)
+                self.pinkBtn.configure(image = self.pinkImg)
+                self.orangeBtn.configure(image = self.orangeSelectedImg)
+                
+            case _:
+                
+                self.blueBtn.configure(image = self.blueImg)
+                self.redBtn.configure(image = self.redImg)
+                self.pinkBtn.configure(image = self.pinkImg)
+                self.orangeBtn.configure(image = self.orangeImg)
+        
