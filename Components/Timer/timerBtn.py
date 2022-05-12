@@ -1,6 +1,7 @@
 from tkinter import Button
 from Components.Timer.timer import Timer
 from PIL import Image, ImageTk
+from Assets.Timer import *
 
 class TimerButtons:
 
@@ -17,9 +18,9 @@ class TimerButtons:
 
     def __init__(self, frame):
 
-        self.startImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\play.png").resize((40, 40)))
-        self.pauseImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\pause.png").resize((40, 40)))
-        self.resetImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\stop-button.png").resize((40, 40)))
+        self.startImg = ImageTk.PhotoImage(Image.open(r"Assets\Timer\play.png").resize((40, 40)))
+        self.pauseImg = ImageTk.PhotoImage(Image.open(r"Assets\Timer\pause.png").resize((40, 40)))
+        self.resetImg = ImageTk.PhotoImage(Image.open(r"Assets\Timer\stop-button.png").resize((40, 40)))
         
         self.frame = frame
         self.CreateButtons()
