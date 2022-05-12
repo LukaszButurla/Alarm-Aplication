@@ -6,6 +6,7 @@ from PIL import ImageTk, Image
 from Components.Alarms.switchAlarmBtn import SwitchBtn
 from Components.Alarms.EditPage.editPage import EditPage
 from functools import partial
+from Assets.Alarms import *
 
 class ListOfAlarms:
         
@@ -22,8 +23,8 @@ class ListOfAlarms:
         self.frame = frame
         self.window = window
         self.menuFrame = menuFrame
-        self.btnOn = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\on-button.png").resize((50, 50)))
-        self.btnOff = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\off-button.png").resize((50, 50)))
+        self.btnOn = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\on-button.png").resize((50, 50)))
+        self.btnOff = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\off-button.png").resize((50, 50)))
         self.switchBtn = SwitchBtn()
         self.editPage = EditPage(self.window, self.menuFrame, self.frame, self)
         self.ShowAlarms()
