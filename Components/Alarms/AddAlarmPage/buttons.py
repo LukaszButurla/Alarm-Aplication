@@ -4,6 +4,7 @@ from Components.Alarms.AddAlarmPage.hourOfAlarm import HourOfAlarm
 from PIL import Image, ImageTk
 from Components.Alarms.alarms import Alarms
 from functools import partial
+from Assets.Alarms import *
 
 
 class Buttons:
@@ -26,10 +27,10 @@ class Buttons:
     
     def __init__(self, frame, page, menuFrame, list):
         
-        self.subtractImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\subtracting-button.png").resize((20, 20)))
-        self.addImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\add.png").resize((20, 20)))
-        self.acceptImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\accept.png").resize((25, 25)))
-        self.cancelImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\cancel.png").resize((20, 20)))
+        self.subtractImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\subtracting-button.png").resize((20, 20)))
+        self.addImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\add.png").resize((20, 20)))
+        self.acceptImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\accept.png").resize((25, 25)))
+        self.cancelImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\cancel.png").resize((20, 20)))
         
         self.page = page
         self.menuFrame = menuFrame

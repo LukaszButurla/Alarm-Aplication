@@ -2,6 +2,7 @@ from Components.Alarms.AddAlarmPage.addAlarmPage import AddAlarmPage
 import Components.Alarms.AddAlarmPage.alarmConfiguration as aC
 from PIL import Image, ImageTk
 from tkinter import Button
+from Assets.Alarms import *
 
 
 class AddAlarmBtn:
@@ -20,7 +21,7 @@ class AddAlarmBtn:
         self.window = window
         self.frame = frame
         self.menuFrame = menuFrame
-        self.addImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\plus.png").resize((20, 20)))
+        self.addImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\plus.png").resize((20, 20)))
         self.addAlarmPage = AddAlarmPage(self.window, self.frame, self.menuFrame, self.listOfAlarms)
         self.CreateAddBtn()
         
