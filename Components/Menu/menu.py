@@ -4,6 +4,7 @@ from Pages.timepiecePage import TimepiecePage
 from Pages.infoPage import InfoPage
 from Pages.timerPage import TimerPage
 from PIL import Image, ImageTk
+from Assets.Menu import *
 
 from tkinter import Button, Frame
 
@@ -30,11 +31,11 @@ class Menu:
         self.window = root
         
         
-        self.alarmImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\alarm-clock.png").resize((30, 30)))
-        self.infoImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\info.png").resize((30, 30)))
-        self.timerImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\timer.png").resize((35, 35)))
-        self.clockImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\clock.png").resize((30, 30)))
-        self.timepieceImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\timepiece.png").resize((32, 32)))
+        self.alarmImg = ImageTk.PhotoImage(Image.open(r"Assets\Menu\alarm-clock.png").resize((30, 30)))
+        self.infoImg = ImageTk.PhotoImage(Image.open(r"Assets\Menu\info.png").resize((30, 30)))
+        self.timerImg = ImageTk.PhotoImage(Image.open(r"Assets\Menu\timer.png").resize((35, 35)))
+        self.clockImg = ImageTk.PhotoImage(Image.open(r"Assets\Menu\clock.png").resize((30, 30)))
+        self.timepieceImg = ImageTk.PhotoImage(Image.open(r"Assets\Menu\timepiece.png").resize((32, 32)))
         
         self.CreateMenu()
         self.ShowMenu()
