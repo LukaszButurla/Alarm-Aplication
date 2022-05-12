@@ -2,6 +2,7 @@ import Components.Alarms.AddAlarmPage.alarmConfiguration as aC
 from tkinter import Button, Frame, Label, SUNKEN
 from PIL import Image, ImageTk
 from functools import partial
+from Assets.Alarms import *
 
 
 class ColorOfAlarm:
@@ -23,14 +24,14 @@ class ColorOfAlarm:
         
     def __init__(self, frame):
         
-        self.blueImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\blue-circle.png").resize((35, 35)))
-        self.redImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\red-circle.png").resize((35, 35)))
-        self.pinkImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\pink-circle.png").resize((35, 35)))
-        self.orangeImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\orange-circle.png").resize((35, 35)))
-        self.blueSelectedImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\blue-selected.png").resize((35, 35)))
-        self.redSelectedImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\red-selected.png").resize((35, 35)))
-        self.pinkSelectedImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\pink-selected.png").resize((35, 35)))
-        self.orangeSelectedImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\orange-selected.png").resize((35, 35)))
+        self.blueImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\blue-circle.png").resize((35, 35)))
+        self.redImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\red-circle.png").resize((35, 35)))
+        self.pinkImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\pink-circle.png").resize((35, 35)))
+        self.orangeImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\orange-circle.png").resize((35, 35)))
+        self.blueSelectedImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\blue-selected.png").resize((35, 35)))
+        self.redSelectedImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\red-selected.png").resize((35, 35)))
+        self.pinkSelectedImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\pink-selected.png").resize((35, 35)))
+        self.orangeSelectedImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\orange-selected.png").resize((35, 35)))
         
         self.frame = frame
         
