@@ -2,6 +2,7 @@ from tkinter import Button
 from functools import partial
 from Components.Timepiece.timepiece import TimepieceTxt
 from PIL import ImageTk, Image
+from Assets.Timepiece import *
 
 class TimepieceButtons:
     
@@ -27,11 +28,11 @@ class TimepieceButtons:
         self.frame = frame
         self.timepiece = TimepieceTxt(self.frame)
         
-        self.addImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\add.png").resize((30, 30)))
-        self.subtractImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\subtracting-button.png").resize((30, 30)))
-        self.startImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\play.png").resize((50, 50)))
-        self.pauseImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\pause.png").resize((50, 50)))
-        self.resetImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\stop-button.png").resize((50, 50)))
+        self.addImg = ImageTk.PhotoImage(Image.open(r"Assets\Timepiece\add.png").resize((30, 30)))
+        self.subtractImg = ImageTk.PhotoImage(Image.open(r"Assets\Timepiece\subtracting-button.png").resize((30, 30)))
+        self.startImg = ImageTk.PhotoImage(Image.open(r"Assets\Timepiece\play.png").resize((50, 50)))
+        self.pauseImg = ImageTk.PhotoImage(Image.open(r"Assets\Timepiece\pause.png").resize((50, 50)))
+        self.resetImg = ImageTk.PhotoImage(Image.open(r"Assets\Timepiece\stop-button.png").resize((50, 50)))
         
         self.CreateButtons()
         self.PlaceButtons(self.timepiece.start, self.timepiece.pause)
