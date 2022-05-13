@@ -3,7 +3,7 @@ from Components.Alarms.AddAlarmPage.repeatAlarm import RepeatAlarm
 from Components.Alarms.AddAlarmPage.colorOfAlarm import ColorOfAlarm
 from Components.Alarms.AddAlarmPage.buttons import Buttons
 import Components.Alarms.AddAlarmPage.alarmConfiguration as aC
-from tkinter import Frame
+from tkinter import Frame, Label
 
 class EditPage:
     
@@ -30,8 +30,10 @@ class EditPage:
         
     def CreateFrame(self):
         
-        self.editFrame = Frame(self.window, width=350, height=550)
+        self.editFrame = Frame(self.window, width=350, height=550, bg = "white")
         
+        txt = Label(self.editFrame, text = "Edit", font=("Calibri", 20), bg = "white", anchor="center")
+        txt.place(x = 110, y = 20, width=80, height=30)        
     def ShowEditFrame(self, alarm):
         
         aC.hour = alarm.hour
