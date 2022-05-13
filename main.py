@@ -24,7 +24,7 @@ class Main:
 
         while True:
 
-            sleep(0.07)
+            sleep(0.07) 
             self.window.update()
             self.menu.clockPage.clock.LoadTime()
             self.menu.clockPage.clock.ShowTime()

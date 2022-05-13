@@ -37,7 +37,7 @@ class EditPage:
         aC.hour = alarm.hour
         aC.minute = alarm.minute
         aC.color = alarm.color
-        aC.days = alarm.days
+        aC.days = alarm.days.copy()
         aC.alarm = alarm
         
         self.buttons.hourOfAlarm.EditLabel(aC.hour, aC.minute)

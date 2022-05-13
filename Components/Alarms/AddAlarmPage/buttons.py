@@ -70,12 +70,14 @@ class Buttons:
         self.addAlarmBtn = Button(self.frame, image = self.acceptImg, borderwidth=0, bg = "white", activebackground="white", command = self.EditAlarm)
         self.addAlarmBtn.place(x = 250, y = 20)               
         
-    def EditAlarm(self):
-                
+    def EditAlarm(self):        
+
         aC.alarm.hour = aC.hour
         aC.alarm.minute = aC.minute
         aC.alarm.color = aC.color
-        aC.alarm.days = aC.days
+        aC.alarm.days = aC.days.copy()
+        aC.alarm.on = True
+        aC.alarm.played = False
         
         self.menuFrame.tkraise()
         self.page.tkraise()
@@ -86,9 +88,9 @@ class Buttons:
         self.page.tkraise()
         self.menuFrame.tkraise()        
         
-    def AddAlarm(self):  
-    
-        alarm = Alarms(True, aC.hour, aC.minute, aC.days, False, "opis", aC.color, False)        
+    def AddAlarm(self):        
+
+        alarm = Alarms(True, aC.hour, aC.minute, aC.days.copy(), False, "opis", aC.color, False)
         
         self.menuFrame.tkraise()
         self.page.tkraise()
