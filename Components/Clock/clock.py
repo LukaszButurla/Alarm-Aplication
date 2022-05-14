@@ -24,7 +24,14 @@ class Clock:
 
         self.hour = datetime.today().hour
         self.minute = datetime.today().minute
+        
+    def CheckLenght(self):
+            
+        if len(str(self.minute)) < 2:
+            
+            self.minute = "0" + str(self.minute)
 
     def ShowTime(self):
 
+        self.CheckLenght()
         self.clockTxt.configure(text = "{}:{}".format(self.hour, self.minute))
