@@ -7,11 +7,13 @@ class Main:
 
     window = None
     menu = None
+    checkAlarms = None
 
     def __init__(self):
 
         self.ConfigureWindow()
         self.menu = Menu(self.window)
+        self.checkAlarms = CheckAlarms(self.window)
         self.Update()        
 
     def ConfigureWindow(self):
@@ -31,7 +33,7 @@ class Main:
             self.menu.timerPage.timerBtn.timer.Count()
             self.menu.timepiecePage.timepieceBtn.timepiece.Countdown()
             self.menu.timepiecePage.timepieceBtn.PlaceButtons(self.menu.timepiecePage.timepieceBtn.timepiece.start, self.menu.timepiecePage.timepieceBtn.timepiece.pause)
-            CheckAlarms.Check()
+            self.checkAlarms.Check()
 
         
 
