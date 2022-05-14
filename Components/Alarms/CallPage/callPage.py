@@ -1,14 +1,21 @@
 from tkinter import Label, Button, Frame
+from Components.Alarms.CallPage.btnOk import BtnOk
 
 class CallPage:
     
     frame = None
+    alarmPage = None
     callFrame = None
+    menu = None
+    btnOk = None
     
-    def __init__(self, frame):
+    def __init__(self, frame, alarmPage, menu):
         
         self.frame = frame
+        self.alarmPage = alarmPage
+        self.menu = menu
         self.CreateFrame()
+        self.btnOk = BtnOk(self.alarmPage, self.callFrame, self.menu)
         
     def CreateFrame(self):
         

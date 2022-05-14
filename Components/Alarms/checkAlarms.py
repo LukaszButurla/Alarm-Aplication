@@ -5,12 +5,16 @@ from datetime import date, datetime
 class CheckAlarms:
     
     callPage = None    
+    alarmFrame = None
+    menu = None
     frame = None
     
-    def __init__(self, frame):
+    def __init__(self, frame, alarmFrame, menu):
         
         self.frame = frame
-        self.callPage = CallPage(self.frame)
+        self.alarmFrame = alarmFrame
+        self.menu = menu
+        self.callPage = CallPage(self.frame, self.alarmFrame, self.menu)
     
     def Check(self):
         

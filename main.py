@@ -13,7 +13,7 @@ class Main:
 
         self.ConfigureWindow()
         self.menu = Menu(self.window)
-        self.checkAlarms = CheckAlarms(self.window)
+        self.checkAlarms = CheckAlarms(self.window, self.menu.alarmsPage.frame, self.menu.frame)
         self.Update()        
 
     def ConfigureWindow(self):
