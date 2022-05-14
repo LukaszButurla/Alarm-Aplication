@@ -1,4 +1,5 @@
 from tkinter import Label, Button, Frame
+from Components.Alarms.CallPage.alarmInformation import AlarmInformation
 from Components.Alarms.CallPage.btnOk import BtnOk
 
 class CallPage:
@@ -6,6 +7,7 @@ class CallPage:
     frame = None
     alarmPage = None
     callFrame = None
+    alarmInformation = None
     menu = None
     list = None
     btnOk = None
@@ -17,6 +19,7 @@ class CallPage:
         self.menu = menu
         self.list = list
         self.CreateFrame()
+        self.alarmInformation = AlarmInformation(self.callFrame)
         self.btnOk = BtnOk(self.alarmPage, self.callFrame, self.menu, self.list)
         
     def CreateFrame(self):
@@ -26,5 +29,6 @@ class CallPage:
     def ShowCallFrame(self, alarm):
                 
         self.callFrame.place(x = 0, y = 0)
+        self.alarmInformation.ShowInformation(alarm)
         self.callFrame.tkraise()
         
