@@ -7,15 +7,17 @@ class CallPage:
     alarmPage = None
     callFrame = None
     menu = None
+    list = None
     btnOk = None
     
-    def __init__(self, frame, alarmPage, menu):
+    def __init__(self, frame, alarmPage, menu, list):
         
         self.frame = frame
         self.alarmPage = alarmPage
         self.menu = menu
+        self.list = list
         self.CreateFrame()
-        self.btnOk = BtnOk(self.alarmPage, self.callFrame, self.menu)
+        self.btnOk = BtnOk(self.alarmPage, self.callFrame, self.menu, self.list)
         
     def CreateFrame(self):
         

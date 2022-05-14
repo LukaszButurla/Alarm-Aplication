@@ -5,13 +5,15 @@ class BtnOk:
     alarmFrame = None    
     frame = None
     menu = None
+    list = None
     btnOk = None
     
-    def __init__(self, alarmFrame, frame, menu):
+    def __init__(self, alarmFrame, frame, menu, list):
         
         self.alarmFrame = alarmFrame
         self.frame = frame
         self.menu = menu
+        self.list = list
         self.CreateButton()
         
     def CreateButton(self):
@@ -23,3 +25,4 @@ class BtnOk:
         
         self.alarmFrame.tkraise()
         self.menu.tkraise()
+        self.list.ShowAlarms()

@@ -7,14 +7,16 @@ class CheckAlarms:
     callPage = None    
     alarmFrame = None
     menu = None
+    list = None
     frame = None
     
-    def __init__(self, frame, alarmFrame, menu):
+    def __init__(self, frame, alarmFrame, menu, list):
         
         self.frame = frame
         self.alarmFrame = alarmFrame
         self.menu = menu
-        self.callPage = CallPage(self.frame, self.alarmFrame, self.menu)
+        self.list = list
+        self.callPage = CallPage(self.frame, self.alarmFrame, self.menu, self.list)
     
     def Check(self):
         
