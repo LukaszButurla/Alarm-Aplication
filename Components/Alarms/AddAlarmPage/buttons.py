@@ -4,6 +4,7 @@ from Components.Alarms.AddAlarmPage.hourOfAlarm import HourOfAlarm
 from PIL import Image, ImageTk
 from Components.Alarms.alarms import Alarms
 from functools import partial
+from Assets.Alarms import *
 
 
 class Buttons:
@@ -26,10 +27,10 @@ class Buttons:
     
     def __init__(self, frame, page, menuFrame, list):
         
-        self.subtractImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\subtracting-button.png").resize((20, 20)))
-        self.addImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\add.png").resize((20, 20)))
-        self.acceptImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\accept.png").resize((25, 25)))
-        self.cancelImg = ImageTk.PhotoImage(Image.open(r"C:\Users\Łukasz\Pictures\Saved Pictures\cancel.png").resize((20, 20)))
+        self.subtractImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\subtracting-button.png").resize((20, 20)))
+        self.addImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\add.png").resize((20, 20)))
+        self.acceptImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\accept.png").resize((25, 25)))
+        self.cancelImg = ImageTk.PhotoImage(Image.open(r"Assets\Alarms\cancel.png").resize((20, 20)))
         
         self.page = page
         self.menuFrame = menuFrame
@@ -69,12 +70,14 @@ class Buttons:
         self.addAlarmBtn = Button(self.frame, image = self.acceptImg, borderwidth=0, bg = "white", activebackground="white", command = self.EditAlarm)
         self.addAlarmBtn.place(x = 250, y = 20)               
         
-    def EditAlarm(self):
-                
+    def EditAlarm(self):        
+
         aC.alarm.hour = aC.hour
         aC.alarm.minute = aC.minute
         aC.alarm.color = aC.color
-        aC.alarm.days = aC.days
+        aC.alarm.days = aC.days.copy()
+        aC.alarm.on = True
+        aC.alarm.played = False
         
         self.menuFrame.tkraise()
         self.page.tkraise()
@@ -85,9 +88,9 @@ class Buttons:
         self.page.tkraise()
         self.menuFrame.tkraise()        
         
-    def AddAlarm(self):  
-    
-        alarm = Alarms(True, aC.hour, aC.minute, aC.days, False, "opis", aC.color, False)        
+    def AddAlarm(self):        
+
+        alarm = Alarms(True, aC.hour, aC.minute, aC.days.copy(), False, "opis", aC.color, False)
         
         self.menuFrame.tkraise()
         self.page.tkraise()
