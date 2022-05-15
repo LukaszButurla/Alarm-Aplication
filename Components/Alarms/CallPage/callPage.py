@@ -1,6 +1,7 @@
 from tkinter import Label, Button, Frame
 from Components.Alarms.CallPage.alarmInformation import AlarmInformation
 from Components.Alarms.CallPage.btnOk import BtnOk
+from Components.Alarms.CallPage.snoozeBtn import SnoozeBtn
 
 class CallPage:
     
@@ -11,6 +12,7 @@ class CallPage:
     menu = None
     list = None
     btnOk = None
+    snoozeBtn = None
     
     def __init__(self, frame, alarmPage, menu, list):
         
@@ -21,6 +23,7 @@ class CallPage:
         self.CreateFrame()
         self.alarmInformation = AlarmInformation(self.callFrame)
         self.btnOk = BtnOk(self.alarmPage, self.callFrame, self.menu, self.list)
+        self.snoozeBtn = SnoozeBtn(self.callFrame)
         
     def CreateFrame(self):
         
