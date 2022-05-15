@@ -90,7 +90,7 @@ class Buttons:
         
     def AddAlarm(self):        
 
-        alarm = Alarms(True, aC.hour, aC.minute, aC.days.copy(), False, "opis", aC.color, False)
+        alarm = Alarms(True, aC.hour, aC.minute, aC.days.copy(), False, "opis", aC.color, False, 0)
         
         self.menuFrame.tkraise()
         self.page.tkraise()

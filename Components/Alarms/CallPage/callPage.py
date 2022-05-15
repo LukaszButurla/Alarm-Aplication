@@ -23,7 +23,7 @@ class CallPage:
         self.CreateFrame()
         self.alarmInformation = AlarmInformation(self.callFrame)
         self.btnOk = BtnOk(self.alarmPage, self.callFrame, self.menu, self.list)
-        self.snoozeBtn = SnoozeBtn(self.callFrame)
+        self.snoozeBtn = SnoozeBtn(self.callFrame, self.alarmPage, self.menu, self.list)
         
     def CreateFrame(self):
         
@@ -33,5 +33,6 @@ class CallPage:
                 
         self.callFrame.place(x = 0, y = 0)
         self.alarmInformation.ShowInformation(alarm)
+        self.snoozeBtn.CreateButton(alarm)
         self.callFrame.tkraise()
         
