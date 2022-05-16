@@ -2,7 +2,7 @@ class Alarms:
     
     alarmsList = []
     
-    def __init__(self, on, hour, minute, days, repeat, description, color, played, snoozeTime):        
+    def __init__(self, on, hour, minute, days, repeat, description, color, played, snoozeHour, snoozeMinute):        
         
         self.on = on
         self.hour = hour
@@ -12,6 +12,7 @@ class Alarms:
         self.description = description
         self.color = color
         self.played = played
-        self.snoozeTime = snoozeTime
+        self.snoozeHour = snoozeHour
+        self.snoozeMinute = snoozeMinute
         self.alarmsList.append(self)        
 

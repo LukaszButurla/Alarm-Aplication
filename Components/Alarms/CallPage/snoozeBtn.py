@@ -22,8 +22,14 @@ class SnoozeBtn:
         
     def Snooze(self, alarm):
         
-        alarm.snoozeTime += 5
-                
+        alarm.played = False
+        alarm.snoozeMinute += 5
+        
+        if alarm.snoozeMinute >= 60:
+            
+            alarm.snoozeMinute -= 60
+            alarm.snoozeHour += 1
+                            
         self.CloseFrame()
         
         

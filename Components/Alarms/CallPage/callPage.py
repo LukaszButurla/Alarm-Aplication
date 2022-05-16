@@ -34,5 +34,6 @@ class CallPage:
         self.callFrame.place(x = 0, y = 0)
         self.alarmInformation.ShowInformation(alarm)
         self.snoozeBtn.CreateButton(alarm)
+        self.btnOk.CreateButton(alarm)
         self.callFrame.tkraise()
         
